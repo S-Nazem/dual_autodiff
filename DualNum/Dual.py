@@ -52,7 +52,24 @@ class Dual:
 
     sqrt(self)
         Returns the square root of the dual number.
-        
+
+    sinh(self)
+        Returns the hyperbolic sine of the dual number.
+    
+    cosh(self)
+        Returns the hyperbolic cosine of the dual number.
+    
+    tanh(self)
+        Returns the hyperbolic tangent of the dual number.
+
+    asin(self)
+        Returns the arcsine of the dual number.
+
+    acos(self)
+        Returns the arccosine of the dual number.
+
+    atan(self)
+        Returns the arctangent of the dual number.
     """
 
     # Special Methods
@@ -68,7 +85,18 @@ class Dual:
         
         dual : float
             The dual part of the dual number.
+
+        Raises
+        ------
+        TypeError
+            If 'real' or 'dual' is not of type float or int.
         """
+        if not isinstance(real, (float, int)):
+            raise TypeError(f"Expected 'real' to be of type float or int, got {type(real).__name__} instead.")
+    
+        if not isinstance(dual, (float, int)):
+            raise TypeError(f"Expected 'dual' to be of type float or int, got {type(dual).__name__} instead.")
+    
         self.real = real
         self.dual = dual
     
@@ -123,6 +151,34 @@ class Dual:
         if isinstance(other, Dual):
             return Dual(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+    
+    def __pow__(self, other):
+        """
+        Raises the dual number to the power of another dual number.
+
+        Parameters
+        ----------
+        other : Dual
+            The dual number to raise the current dual number to the power of.
+        """
+        if isinstance(other, Dual):
+            return Dual(self.real ** other.real, self.real ** other.real * (other.dual * math.log(self.real) + other.real * self.dual / self.real))
+        raise TypeError("unsupported operand type(s) for **: '{}' and '{}'".format(type(self), type(other)))
+
+    def __eq__(self, other):
+        """
+        Checks if two dual numbers are equal.
+
+        Parameters
+        ----------
+        other : Dual
+            The dual number to compare with the current dual number.
+        """
+        if isinstance(other, Dual):
+            return self.real == other.real and self.dual == other.dual
+        return False
+    
+
 
     def __repr__(self):
         """
@@ -172,6 +228,8 @@ class Dual:
         """
         Returns the natural logarithm of the dual number.
         """
+        if self.real <= 0:
+            raise ValueError("Logarithm of a non-positive number is undefined.")
         return Dual(math.log(self.real), self.dual / self.real)
     
     def sqrt(self):
@@ -179,6 +237,45 @@ class Dual:
         Returns the square root of the dual number.
         """
         return Dual(math.sqrt(self.real), self.dual / (2 * math.sqrt(self.real)))
+    
+    def sinh(self):
+        """
+        Returns the hyperbolic sine of the dual number.
+        """
+        return Dual(math.sinh(self.real), self.dual * math.cosh(self.real))
+
+    def cosh(self):
+        """
+        Returns the hyperbolic cosine of the dual number.
+        """
+        return Dual(math.cosh(self.real), self.dual * math.sinh(self.real))
+    
+    def tanh(self):
+        """
+        Returns the hyperbolic tangent of the dual number.
+        """
+        return Dual(math.tanh(self.real), self.dual / (math.cosh(self.real) ** 2))
+    
+    def asin(self):
+        """
+        Returns the arcsine of the dual number.
+        """
+        return Dual(math.asin(self.real), self.dual / math.sqrt(1 - self.real ** 2))
+    
+    def acos(self):
+        """
+        Returns the arccosine of the dual number.
+        """
+        return Dual(math.acos(self.real), -self.dual / math.sqrt(1 - self.real ** 2))
+    
+    def atan(self):
+        """
+        Returns the arctangent of the dual number.
+        """
+        return Dual(math.atan(self.real), self.dual / (1 + self.real ** 2))
+    
+
+    
     
     
 

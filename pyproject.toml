@@ -21,7 +21,8 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Topic :: Software Development :: Libraries"
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Scientific/Engineering"
 ]
 
 # Runtime dependencies
@@ -29,8 +30,8 @@ dependencies = []
 
 [project.urls]
 "Documentation" = "https://your-readthedocs-url-here"
-"Source" = "https://github.com/yourusername/companies_package"
-"Issues" = "https://github.com/yourusername/companies_package/issues"
+"Source" = "https://github.com/S-Nazem/dual_autodiff"
+"Issues" = "https://github.com/S-Nazem/dual_autodiff/issues"
 
 
 [tool.setuptools_scm]
