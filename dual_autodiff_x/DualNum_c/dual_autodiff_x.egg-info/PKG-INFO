@@ -1,0 +1,4 @@
+Metadata-Version: 2.1
+Name: dual_autodiff_x
+Version: 0.2.0
+Summary: A Cythonized Python package for dual number arithmetic with autodiff.
