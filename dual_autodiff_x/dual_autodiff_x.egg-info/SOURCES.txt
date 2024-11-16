@@ -1,0 +1,9 @@
+pyproject.toml
+setup.py
+DualNum_c/Dual_c.c
+DualNum_c/__init__.py
+DualNum_c/version.py
+dual_autodiff_x.egg-info/PKG-INFO
+dual_autodiff_x.egg-info/SOURCES.txt
+dual_autodiff_x.egg-info/dependency_links.txt
+dual_autodiff_x.egg-info/top_level.txt
