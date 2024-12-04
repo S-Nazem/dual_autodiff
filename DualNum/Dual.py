@@ -275,6 +275,30 @@ class Dual:
         return Dual(math.atan(self.real), self.dual / (1 + self.real ** 2))
     
 
+
+def compute_derivative(func, x, dual_class):
+    """
+    Computes the derivative of a function at a given point using dual numbers.
+
+    Parameters
+    ----------
+    func : function
+        The function to compute the derivative of.
+    
+    x : float
+        The point at which to compute the derivative.
+    
+    dual_class : Dual
+        The class to use for dual numbers.
+
+    Returns
+    -------
+    float
+        The derivative of the function at the given point.
+    """
+    return func(dual_class(x, 1)).dual
+    
+
     
     
     
