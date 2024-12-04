@@ -11,67 +11,8 @@ class Dual:
         
     dual : float
         The dual part of the dual number.
-        
-    Methods
-    -------
-    __add__(self, other)
-        Adds two dual numbers together.
-    
-    __sub__(self, other)
-        Subtracts one dual number from another.
-
-    __mul__(self, other)
-        Multiplies two dual numbers together.
-
-    __truediv__(self, other)
-        Divides one dual number by another.
-
-    __repr__(self)
-        Returns a string representation of the dual number.
-
-    real(self)
-        Returns the real part of the dual number.
-
-    dual(self)
-        Returns the dual part of the dual number.
-
-    sin(self)
-        Returns the sine of the dual number.
-    
-    cos(self)
-        Returns the cosine of the dual number.
-
-    tan(self)
-        Returns the tangent of the dual number.
-
-    exp(self)
-        Returns the exponential of the dual number.
-
-    log(self)
-        Returns the natural logarithm of the dual number.
-
-    sqrt(self)
-        Returns the square root of the dual number.
-
-    sinh(self)
-        Returns the hyperbolic sine of the dual number.
-    
-    cosh(self)
-        Returns the hyperbolic cosine of the dual number.
-    
-    tanh(self)
-        Returns the hyperbolic tangent of the dual number.
-
-    asin(self)
-        Returns the arcsine of the dual number.
-
-    acos(self)
-        Returns the arccosine of the dual number.
-
-    atan(self)
-        Returns the arctangent of the dual number.
     """
-
+    
     # Special Methods
     def __init__(self, real, dual):
         """
@@ -188,13 +129,13 @@ class Dual:
     
 
     # Class Methods
-    def real(self):
+    def get_real(self):
         """
         Returns the real part of the dual number.
         """
         return self.real
 
-    def dual(self):
+    def get_dual(self):
         """
         Returns the dual part of the dual number.
         """
@@ -296,11 +237,4 @@ def compute_derivative(func, x, dual_class):
     float
         The derivative of the function at the given point.
     """
-    return func(dual_class(x, 1)).dual
-    
-
-    
-    
-    
-
-
+    return func(dual_class(x, 1)).get_dual
