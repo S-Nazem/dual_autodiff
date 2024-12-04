@@ -12,7 +12,7 @@ class Dual:
     dual : float
         The dual part of the dual number.
     """
-    
+
     # Special Methods
     def __init__(self, real, dual):
         """
@@ -237,4 +237,4 @@ def compute_derivative(func, x, dual_class):
     float
         The derivative of the function at the given point.
     """
-    return func(dual_class(x, 1)).get_dual
+    return func(dual_class(x, 1)).dual
