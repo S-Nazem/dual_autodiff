@@ -37,7 +37,7 @@ Pre-built wheels are available in the `dist_wheels` directory for quick installa
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://gitlab.developers.cam.ac.uk/<your-repo>.git
+   git clone git clone https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665.git
    ```
 
 2. Install the wheel:
