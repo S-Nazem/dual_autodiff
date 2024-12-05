@@ -236,5 +236,12 @@ def compute_derivative(func, x, dual_class):
     -------
     float
         The derivative of the function at the given point.
+
+    Examples
+    --------
+    >>> def f(x):
+    ...     return x ** 2
+    >>> compute_derivative(f, 2, Dual)
+    4.0
     """
     return func(dual_class(x, 1)).dual
