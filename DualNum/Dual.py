@@ -11,6 +11,14 @@ class Dual:
         
     dual : float
         The dual part of the dual number.
+
+    Examples
+    --------
+    >>> x = Dual(2, 1)
+    >>> y = Dual(3, 0)
+    >>> z = x.sin() + y.log()
+    >>> z
+    Dual(real=2.0079097154937915, dual=-0.4161468365471424)
     """
 
     # Special Methods
@@ -43,55 +51,109 @@ class Dual:
     
     def __add__(self, other):
         """
-        Adds two dual numbers together.
+        Adds a dual number and another dual number or scalar.
 
         Parameters
         ----------
-        other : Dual
-            The dual number to add to the current dual number.
+        other : Dual, int, or float
+            The value to add to the current dual number.
         """
         if isinstance(other, Dual):
             return Dual(self.real + other.real, self.dual + other.dual)
+        if isinstance(other, (float, int)):
+            return Dual(self.real + other, self.dual)
         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
+    
+    def __radd__(self, other):
+        """
+        Adds a dual number and another dual number or scalar.
+
+        Parameters
+        ----------
+        other : Dual, int, or float
+            The value to add to the current dual number.
+        """
+        return self.__add__(other)
     
     def __sub__(self, other):
         """
-        Subtracts one dual number from another.
+        Subtracts one dual number from another dual or int/float.
 
         Parameters
         ----------
-        other : Dual
-            The dual number to subtract from the current dual number.
+        other : Dual, int, or float
+            The value to subtract from the current dual number.
         """
         if isinstance(other, Dual):
             return Dual(self.real - other.real, self.dual - other.dual)
+        if isinstance(other, (float, int)):
+            return Dual(self.real - other, self.dual)
         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
+    
+    def __rsub__(self, other):
+        """
+        Subtracts one dual number from another dual or int/float.
+
+        Parameters
+        ----------
+        other : Dual, int, or float
+            The value to subtract from the current dual number.
+        """
+        return self.__sub__(other)
     
     def __mul__(self, other):
         """
-        Multiplies two dual numbers together.
+        Multiplies a dual number with another dual number or an int/float.
 
         Parameters
         ----------
-        other : Dual
-            The dual number to multiply with the current dual number.
+        other : Dual, int, or float
+            The value to multiply with the current dual number.
         """
         if isinstance(other, Dual):
             return Dual(self.real * other.real, self.real * other.dual + self.dual * other.real)
+        if isinstance(other, (float, int)):
+            return Dual(self.real * other, self.dual * other)
         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
     
-    def __truediv__(self, other):
+    def __rmul__(self, other):
         """
-        Divides one dual number by another.
+        Multiplies a dual number with another dual number or an int/float.
 
         Parameters
         ----------
-        other : Dual
-            The dual number to divide the current dual number by.
+        other : Dual, int, or float
+            The value to multiply with the current dual number.
         """
+        return self.__mul__(other)
+    
+    def __truediv__(self, other):
+        """
+        Divides one dual number by another dual number or an int/float.
+
+        Parameters
+        ----------
+        other : Dual, int, or float
+            The value to divide the current dual number by.
+        """
+        if other.real == 0:
+            raise ZeroDivisionError("division by zero is undefined")
         if isinstance(other, Dual):
             return Dual(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
+        if isinstance(other, (float, int)):
+            return Dual(self.real / other, self.dual / other)
         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+    
+    def __rtruediv__(self, other):
+        """
+        Divides one dual number by another dual number or an int/float.
+
+        Parameters
+        ----------
+        other : Dual, int, or float
+            The value to divide the current dual number by.
+        """
+        return self.__truediv__(other)
     
     def __pow__(self, other):
         """
@@ -229,7 +291,7 @@ def compute_derivative(func, x, dual_class):
     x : float
         The point at which to compute the derivative.
     
-    dual_class : Dual
+    dual_class : Dual or Dual_c
         The class to use for dual numbers.
 
     Returns
