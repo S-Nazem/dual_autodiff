@@ -1,29 +1,27 @@
-activate_venv.sh
-
-venv/
-
-build/
-
-source/
-
-.vscode/
-
-.ipynb_checkpoints/
-
-make.bat
-
-makefile
-
-dual_autodiff_venv/
-
-dual_autodiff.egg-info/
-
-dist/
-
+# Python artifacts
+*.pyc
+*.pyo
 __pycache__/
 
-docs/
+# Virtual environments
+dual_autodiff_venv/
 
-dual_autodiff_x/test_env/
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
 
-DualNum/version.py
+# Cython build artifacts
+*.c
+*.so
+*.pyd
+
+# Build directories
+build/
+dist/
+*.egg-info/
+
+# Cache
+pytest_cache/
+.vscode/
+
+# macOS-specific files
+.DS_Store
