@@ -1,5 +1,6 @@
 import pytest
 from DualNum import Dual, compute_derivative
+from DualNum_c import Dual_c as Dual
 import math
 
 def test_init():
