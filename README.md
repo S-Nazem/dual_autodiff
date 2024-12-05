@@ -14,7 +14,7 @@ The **DualNum**  package is a Python library for automatic differentiation using
 
 1. Clone this repository:
    ```bash
-   git clone https://gitlab.com/yourusername/dual_autodiff.git
+   git clone https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665/-/main?ref_type=heads
    cd dual_autodiff
    ```
 
@@ -29,6 +29,27 @@ The **DualNum**  package is a Python library for automatic differentiation using
    cd dual_autodiff_x
    pip install -e .
    ```
+
+## Pre-built wheels 
+
+Pre-built wheels are available in the `dist_wheels` directory for quick installation on supported platforms.
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://gitlab.developers.cam.ac.uk/<your-repo>.git
+   ```
+
+2. Install the wheel:
+    ```bash
+    pip install dist_wheels/dual_autodiff_x-0.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+    ```
+    or
+    ```bash
+    pip install dist_wheels/dual_autodiff_x-0.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+    ```
+
+
 
 ## Usage
 
@@ -69,6 +90,12 @@ To view the documentation locally:
     make html
     open build/html/index.html
     ```
+
+## Source
+
+The source code for this project is available on GitLab:
+[GitLab Repository](https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665/-/main?ref_type=heads)
+
 
 ## License
 
