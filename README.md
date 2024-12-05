@@ -57,36 +57,36 @@ Install the wheel:
 
 Here's a quick example on how to use the **Dual** class:
 
-    ```python
-    from DualNum import Dual
+```python
+from DualNum import Dual
 
-    # Create a dual number with real part 2 and dual part 1
-    x = Dual(2, 1)
+# Create a dual number with real part 2 and dual part 1
+x = Dual(2, 1)
 
-    # Perform operations
-    y = x.sin() + x.log()
-    print("Result:", y)
+# Perform operations
+y = x.sin() + x.log()
+print("Result:", y)
 
-    # Compute a derivative
-    def f(x):
-        return x.sin() + x.log()
+# Compute a derivative
+def f(x):
+    return x.sin() + x.log()
 
-    derivative = compute_derivative(f, 2, Dual)
-    print("Derivative at x=2:", derivative)
-    ```
+derivative = compute_derivative(f, 2, Dual)
+print("Derivative at x=2:", derivative)
+```
 
 To use the Dual_c class (Cythonized version):
 
-    ```python
-    from DualNum_c import Dual_c
+```python
+from DualNum_c import Dual_c
 
-    # Create a dual number with real part 2 and dual part 1
-    x = Dual_c(2, 1)
+# Create a dual number with real part 2 and dual part 1
+x = Dual_c(2, 1)
 
-    # Perform operations
-    y = x.sin() + x.log()
-    print("Result:", y)
-    ```
+# Perform operations
+y = x.sin() + x.log()
+print("Result:", y)
+```
 --
 
 ## Documentation
