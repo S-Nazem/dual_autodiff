@@ -30,7 +30,7 @@ dependencies = []
 
 [project.urls]
 "Documentation" = "Local HTML in build/html (run make html)"
-"Source" = "https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665/-/tree/dev/dual_autodiff_x?ref_type=heads"
+"Source" = "https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665.git"
 
 [tool.setuptools_scm]
 write_to = "DualNum_c/version.py"
