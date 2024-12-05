@@ -42,13 +42,18 @@ Pre-built wheels are available in the `dist_wheels` directory for quick installa
 
 ### Installation
 
-Install the wheel:
+1. Install the wheel (310):
     ```bash
     pip install dist_wheels/dual_autodiff_x-0.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
     ```
-    or
+2. Install the wheel (311)
     ```bash
     pip install dist_wheels/dual_autodiff_x-0.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+    ```
+3. Import and use
+    ```python
+    from DualNum import Dual, compute_derivate
+    from DualNum_c import Dual_c
     ```
 
 --
