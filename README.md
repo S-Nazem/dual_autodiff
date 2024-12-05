@@ -68,8 +68,7 @@ To view the documentation locally:
     ```bash
     make html
     open build/html/index.html
-
-
+    ```
 
 ## License
 

@@ -29,9 +29,8 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-"Documentation" = "https://your-readthedocs-url-here"
-"Source" = "https://github.com/S-Nazem/dual_autodiff"
-"Issues" = "https://github.com/S-Nazem/dual_autodiff/issues"
+"Documentation" = "Local HTML in build/html (run make html)"
+"Source" = "https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665/-/tree/main?ref_type=heads"
 
 
 [tool.setuptools_scm]

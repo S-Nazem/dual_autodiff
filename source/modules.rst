@@ -8,7 +8,7 @@ DualNum module
 
 The `DualNum` module provides the `Dual` class for dual number arithmetic and automatic differentiation. It allows users to perform mathematical operations on dual numbers, including addition, subtraction, multiplication, division, exponentiation, trigonometric functions, and logarithmic functions.
 
-Usage Example
+Example Usage
 -------------
 Here's a quick example of how to use the `Dual` class from the `DualNum` module:
 
