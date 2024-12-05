@@ -2,6 +2,8 @@
 
 The **DualNum**  package is a Python library for automatic differentiation using dual numbers. It enables precise computation of derivatives and supports a wide range of mathematical operations via the class **Dual**. Additionally, the package includes a Cythonized version, **Dual_c**, for improved performance in computationally intensive tasks.
 
+--
+
 ## Features
 - **Automatic Differentiation**: Compute derivatives of complex functions with ease.
 - **Wide Mathematical Support**: Includes common operations like `sin`, `cos`, `log`, `exp`, and more.
@@ -9,6 +11,8 @@ The **DualNum**  package is a Python library for automatic differentiation using
 - **Cythonized Version**: Leverage the **Dual_c** module for faster computations while maintaining the same API.
 - **Robust Error Handling**: Safeguards against invalid mathematical operations (e.g., log of non-positive numbers).
 - **Integration with Scientific Tools**: Compatible with Python scientific libraries like NumPy and Matplotlib for advanced visualization and computation.
+
+--
 
 ## Installation
 
@@ -30,17 +34,15 @@ The **DualNum**  package is a Python library for automatic differentiation using
    pip install -e .
    ```
 
+--
+
 ## Pre-built wheels 
 
 Pre-built wheels are available in the `dist_wheels` directory for quick installation on supported platforms.
 
 ### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665.git
-   ```
 
-2. Install the wheel:
+Install the wheel:
     ```bash
     pip install dist_wheels/dual_autodiff_x-0.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
     ```
@@ -49,7 +51,7 @@ Pre-built wheels are available in the `dist_wheels` directory for quick installa
     pip install dist_wheels/dual_autodiff_x-0.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
     ```
 
-
+--
 
 ## Usage
 
@@ -73,13 +75,27 @@ Here's a quick example on how to use the **Dual** class:
     print("Derivative at x=2:", derivative)
     ```
 
+To use the Dual_c class (Cythonized version):
+
+    ```python
+    from DualNum_c import Dual_c
+
+    # Create a dual number with real part 2 and dual part 1
+    x = Dual_c(2, 1)
+
+    # Perform operations
+    y = x.sin() + x.log()
+    print("Result:", y)
+    ```
+--
+
 ## Documentation
 
 To view the documentation locally:
 
 1. Ensure you have Sphinx installed:
    ```bash
-   pip install -r requirements.txt
+   pip install sphinx
 
 2. Navigate to the source
     ```bash
@@ -91,11 +107,14 @@ To view the documentation locally:
     open build/html/index.html
     ```
 
+--
+
 ## Source
 
 The source code for this project is available on GitLab:
-[GitLab Repository](https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665/-/main?ref_type=heads)
+[GitLab Repository](https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665)
 
+--
 
 ## License
 
