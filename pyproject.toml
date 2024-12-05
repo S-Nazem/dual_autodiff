@@ -14,7 +14,7 @@ authors = [
 ]
 keywords = ["dual numbers", "automatic differentiation"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.9",
@@ -28,9 +28,10 @@ classifiers = [
 # Runtime dependencies
 dependencies = []
 
+# URLS to project resources
 [project.urls]
-"Documentation" = "Local HTML in build/html (run make html)"
-"Source" = https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665.git
+"Documentation" = "See local documentation in build/html/index.html (run make html)"
+"Source" = "https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665.git"
 
 
 [tool.setuptools_scm]

@@ -5,6 +5,7 @@ __pycache__/
 
 # Virtual environments
 dual_autodiff_venv/
+clean_venv/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
