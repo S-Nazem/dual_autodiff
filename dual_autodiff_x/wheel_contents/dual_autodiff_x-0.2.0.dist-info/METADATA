@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: dual_autodiff_x
+Version: 0.2.0
+Summary: A Cythonized Python package for dual number arithmetic with autodiff.
+Author-email: Saam Nazempour <sn665@cam.ac.uk>
+License: MIT
+Project-URL: Documentation, Local HTML in build/html (run make html)
+Project-URL: Source, https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665/-/tree/dev/dual_autodiff_x?ref_type=heads
+Keywords: dual numbers,automatic differentiation,cythonized code
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
