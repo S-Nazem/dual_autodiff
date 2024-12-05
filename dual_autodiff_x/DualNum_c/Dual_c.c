@@ -1857,6 +1857,9 @@ static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_ve
 static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
 #endif
 
+/* PyIntCompare.proto */
+static CYTHON_INLINE int __Pyx_PyInt_BoolEqObjC(PyObject *op1, PyObject *op2, long intval, long inplace);
+
 /* PyIntBinop.proto */
 #if !CYTHON_COMPILING_IN_PYPY
 static PyObject* __Pyx_PyInt_MultiplyCObj(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check);
@@ -2162,13 +2165,14 @@ int __pyx_module_is_main_DualNum_c__Dual_c = 0;
 /* Implementation of "DualNum_c.Dual_c" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_TypeError;
+static PyObject *__pyx_builtin_ZeroDivisionError;
 static PyObject *__pyx_builtin_ValueError;
 /* #### Code section: string_decls ### */
-static const char __pyx_k_[] = ")";
 static const char __pyx_k_x[] = "x";
-static const char __pyx_k__3[] = "*";
+static const char __pyx_k__2[] = ")";
+static const char __pyx_k__4[] = "*";
 static const char __pyx_k_eq[] = "__eq__";
-static const char __pyx_k__31[] = "?";
+static const char __pyx_k__36[] = "?";
 static const char __pyx_k_add[] = "__add__";
 static const char __pyx_k_cos[] = "cos";
 static const char __pyx_k_doc[] = "__doc__";
@@ -2190,8 +2194,11 @@ static const char __pyx_k_init[] = "__init__";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_math[] = "math";
 static const char __pyx_k_name[] = "__name__";
+static const char __pyx_k_radd[] = "__radd__";
 static const char __pyx_k_real[] = "real";
 static const char __pyx_k_repr[] = "__repr__";
+static const char __pyx_k_rmul[] = "__rmul__";
+static const char __pyx_k_rsub[] = "__rsub__";
 static const char __pyx_k_self[] = "self";
 static const char __pyx_k_sinh[] = "sinh";
 static const char __pyx_k_spec[] = "__spec__";
@@ -2211,7 +2218,9 @@ static const char __pyx_k_truediv[] = "__truediv__";
 static const char __pyx_k_get_dual[] = "get_dual";
 static const char __pyx_k_get_real[] = "get_real";
 static const char __pyx_k_qualname[] = "__qualname__";
+static const char __pyx_k_rtruediv[] = "__rtruediv__";
 static const char __pyx_k_set_name[] = "__set_name__";
+static const char __pyx_k_Dual_real[] = "Dual(real=";
 static const char __pyx_k_TypeError[] = "TypeError";
 static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_Dual_c_cos[] = "Dual_c.cos";
@@ -2226,7 +2235,6 @@ static const char __pyx_k_Dual_c_acos[] = "Dual_c.acos";
 static const char __pyx_k_Dual_c_asin[] = "Dual_c.asin";
 static const char __pyx_k_Dual_c_atan[] = "Dual_c.atan";
 static const char __pyx_k_Dual_c_cosh[] = "Dual_c.cosh";
-static const char __pyx_k_Dual_c_real[] = "Dual_c(real=";
 static const char __pyx_k_Dual_c_sinh[] = "Dual_c.sinh";
 static const char __pyx_k_Dual_c_sqrt[] = "Dual_c.sqrt";
 static const char __pyx_k_Dual_c_tanh[] = "Dual_c.tanh";
@@ -2237,17 +2245,25 @@ static const char __pyx_k_Dual_c___sub[] = "Dual_c.__sub__";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_Dual_c___init[] = "Dual_c.__init__";
+static const char __pyx_k_Dual_c___radd[] = "Dual_c.__radd__";
 static const char __pyx_k_Dual_c___repr[] = "Dual_c.__repr__";
+static const char __pyx_k_Dual_c___rmul[] = "Dual_c.__rmul__";
+static const char __pyx_k_Dual_c___rsub[] = "Dual_c.__rsub__";
 static const char __pyx_k_init_subclass[] = "__init_subclass__";
 static const char __pyx_k_Dual_c_get_dual[] = "Dual_c.get_dual";
 static const char __pyx_k_Dual_c_get_real[] = "Dual_c.get_real";
 static const char __pyx_k_DualNum_c_Dual_c[] = "DualNum_c.Dual_c";
 static const char __pyx_k_Dual_c___truediv[] = "Dual_c.__truediv__";
+static const char __pyx_k_Dual_c___rtruediv[] = "Dual_c.__rtruediv__";
+static const char __pyx_k_ZeroDivisionError[] = "ZeroDivisionError";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_compute_derivative[] = "compute_derivative";
 static const char __pyx_k_DualNum_c_Dual_c_pyx[] = "DualNum_c/Dual_c.pyx";
-static const char __pyx_k_A_class_to_represent_a_dual_num[] = "\n    A class to represent a dual number for use in automatic differentiation.\n    \n    Attributes\n    ----------\n    real : float\n        The real part of the dual number.\n        \n    dual : float\n        The dual part of the dual number.\n    ";
+static const char __pyx_k_compute_derivative_line_282[] = "compute_derivative (line 282)";
+static const char __pyx_k_division_by_zero_is_undefined[] = "division by zero is undefined";
+static const char __pyx_k_A_class_to_represent_a_dual_num[] = "\n    A class to represent a dual number for use in automatic differentiation.\n    \n    Attributes\n    ----------\n    real : float\n        The real part of the dual number.\n        \n    dual : float\n        The dual part of the dual number.\n\n    Examples\n    --------\n    >>> x = Dual_c(2, 1)\n    >>> y = Dual_c(3, 0)\n    >>> z = x.sin() + y.log()\n    >>> z\n    Dual(real=2.0079097154937915, dual=-0.4161468365471424)\n    ";
+static const char __pyx_k_Computes_the_derivative_of_a_fu[] = "\n    Computes the derivative of a function at a given point using dual numbers.\n\n    Parameters\n    ----------\n    func : function\n        The function to compute the derivative of.\n    \n    x : float\n        The point at which to compute the derivative.\n    \n    dual_class : Dual or Dual_c\n        The class to use for dual numbers.\n\n    Returns\n    -------\n    float\n        The derivative of the function at the given point.\n\n    Examples\n    --------\n    >>> def f(x):\n    ...     return x ** 2\n    >>> compute_derivative(f, 2, Dual_c)\n    4.0\n    ";
 static const char __pyx_k_Expected_dual_to_be_of_type_floa[] = "Expected 'dual' to be of type float or int, got ";
 static const char __pyx_k_Expected_real_to_be_of_type_floa[] = "Expected 'real' to be of type float or int, got ";
 static const char __pyx_k_Logarithm_of_a_non_positive_numb[] = "Logarithm of a non-positive number is undefined.";
@@ -2259,26 +2275,30 @@ static const char __pyx_k_unsupported_operand_type_s_for_a_5[] = "unsupported op
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_real, PyObject *__pyx_v_dual); /* proto */
 static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_2__add__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__sub__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__mul__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__truediv__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__repr__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16get_real(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18get_dual(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42atan(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__radd__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__sub__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__rsub__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__mul__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__rmul__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__truediv__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16__rtruediv__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18__pow__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20__eq__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22__repr__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24get_real(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26get_dual(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28sin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30cos(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32tan(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34exp(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36log(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38sqrt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40sinh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42cosh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_44tanh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_46asin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_48acos(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_50atan(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_9DualNum_c_6Dual_c_compute_derivative(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_func, PyObject *__pyx_v_x, PyObject *__pyx_v_dual_class); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
@@ -2309,8 +2329,8 @@ typedef struct {
   #endif
   #if CYTHON_USE_MODULE_STATE
   #endif
-  PyObject *__pyx_kp_u_;
   PyObject *__pyx_kp_s_A_class_to_represent_a_dual_num;
+  PyObject *__pyx_kp_u_Computes_the_derivative_of_a_fu;
   PyObject *__pyx_n_s_DualNum_c_Dual_c;
   PyObject *__pyx_kp_s_DualNum_c_Dual_c_pyx;
   PyObject *__pyx_n_s_Dual_c;
@@ -2319,7 +2339,11 @@ typedef struct {
   PyObject *__pyx_n_s_Dual_c___init;
   PyObject *__pyx_n_s_Dual_c___mul;
   PyObject *__pyx_n_s_Dual_c___pow;
+  PyObject *__pyx_n_s_Dual_c___radd;
   PyObject *__pyx_n_s_Dual_c___repr;
+  PyObject *__pyx_n_s_Dual_c___rmul;
+  PyObject *__pyx_n_s_Dual_c___rsub;
+  PyObject *__pyx_n_s_Dual_c___rtruediv;
   PyObject *__pyx_n_s_Dual_c___sub;
   PyObject *__pyx_n_s_Dual_c___truediv;
   PyObject *__pyx_n_s_Dual_c_acos;
@@ -2331,19 +2355,21 @@ typedef struct {
   PyObject *__pyx_n_s_Dual_c_get_dual;
   PyObject *__pyx_n_s_Dual_c_get_real;
   PyObject *__pyx_n_s_Dual_c_log;
-  PyObject *__pyx_kp_u_Dual_c_real;
   PyObject *__pyx_n_s_Dual_c_sin;
   PyObject *__pyx_n_s_Dual_c_sinh;
   PyObject *__pyx_n_s_Dual_c_sqrt;
   PyObject *__pyx_n_s_Dual_c_tan;
   PyObject *__pyx_n_s_Dual_c_tanh;
+  PyObject *__pyx_kp_u_Dual_real;
   PyObject *__pyx_kp_u_Expected_dual_to_be_of_type_floa;
   PyObject *__pyx_kp_u_Expected_real_to_be_of_type_floa;
   PyObject *__pyx_kp_u_Logarithm_of_a_non_positive_numb;
   PyObject *__pyx_n_s_TypeError;
   PyObject *__pyx_n_s_ValueError;
-  PyObject *__pyx_n_s__3;
-  PyObject *__pyx_n_s__31;
+  PyObject *__pyx_n_s_ZeroDivisionError;
+  PyObject *__pyx_kp_u__2;
+  PyObject *__pyx_n_s__36;
+  PyObject *__pyx_n_s__4;
   PyObject *__pyx_n_s_acos;
   PyObject *__pyx_n_s_add;
   PyObject *__pyx_n_s_asin;
@@ -2351,9 +2377,11 @@ typedef struct {
   PyObject *__pyx_n_s_atan;
   PyObject *__pyx_n_s_cline_in_traceback;
   PyObject *__pyx_n_s_compute_derivative;
+  PyObject *__pyx_kp_u_compute_derivative_line_282;
   PyObject *__pyx_n_s_cos;
   PyObject *__pyx_n_s_cosh;
   PyObject *__pyx_n_s_dict;
+  PyObject *__pyx_kp_u_division_by_zero_is_undefined;
   PyObject *__pyx_n_s_doc;
   PyObject *__pyx_n_s_dual;
   PyObject *__pyx_kp_u_dual_2;
@@ -2381,8 +2409,12 @@ typedef struct {
   PyObject *__pyx_n_s_pow;
   PyObject *__pyx_n_s_prepare;
   PyObject *__pyx_n_s_qualname;
+  PyObject *__pyx_n_s_radd;
   PyObject *__pyx_n_s_real;
   PyObject *__pyx_n_s_repr;
+  PyObject *__pyx_n_s_rmul;
+  PyObject *__pyx_n_s_rsub;
+  PyObject *__pyx_n_s_rtruediv;
   PyObject *__pyx_n_s_self;
   PyObject *__pyx_n_s_set_name;
   PyObject *__pyx_n_s_sin;
@@ -2404,23 +2436,23 @@ typedef struct {
   PyObject *__pyx_int_0;
   PyObject *__pyx_int_1;
   PyObject *__pyx_int_2;
-  PyObject *__pyx_tuple__2;
-  PyObject *__pyx_tuple__4;
-  PyObject *__pyx_tuple__6;
-  PyObject *__pyx_tuple__13;
-  PyObject *__pyx_tuple__29;
-  PyObject *__pyx_codeobj__5;
-  PyObject *__pyx_codeobj__7;
+  PyObject *__pyx_tuple_;
+  PyObject *__pyx_tuple__3;
+  PyObject *__pyx_tuple__5;
+  PyObject *__pyx_tuple__7;
+  PyObject *__pyx_tuple__18;
+  PyObject *__pyx_tuple__34;
+  PyObject *__pyx_codeobj__6;
   PyObject *__pyx_codeobj__8;
   PyObject *__pyx_codeobj__9;
   PyObject *__pyx_codeobj__10;
   PyObject *__pyx_codeobj__11;
   PyObject *__pyx_codeobj__12;
+  PyObject *__pyx_codeobj__13;
   PyObject *__pyx_codeobj__14;
   PyObject *__pyx_codeobj__15;
   PyObject *__pyx_codeobj__16;
   PyObject *__pyx_codeobj__17;
-  PyObject *__pyx_codeobj__18;
   PyObject *__pyx_codeobj__19;
   PyObject *__pyx_codeobj__20;
   PyObject *__pyx_codeobj__21;
@@ -2431,7 +2463,12 @@ typedef struct {
   PyObject *__pyx_codeobj__26;
   PyObject *__pyx_codeobj__27;
   PyObject *__pyx_codeobj__28;
+  PyObject *__pyx_codeobj__29;
   PyObject *__pyx_codeobj__30;
+  PyObject *__pyx_codeobj__31;
+  PyObject *__pyx_codeobj__32;
+  PyObject *__pyx_codeobj__33;
+  PyObject *__pyx_codeobj__35;
 } __pyx_mstate;
 
 #if CYTHON_USE_MODULE_STATE
@@ -2474,8 +2511,8 @@ static int __pyx_m_clear(PyObject *m) {
   #ifdef __Pyx_FusedFunction_USED
   Py_CLEAR(clear_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_CLEAR(clear_module_state->__pyx_kp_u_);
   Py_CLEAR(clear_module_state->__pyx_kp_s_A_class_to_represent_a_dual_num);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_Computes_the_derivative_of_a_fu);
   Py_CLEAR(clear_module_state->__pyx_n_s_DualNum_c_Dual_c);
   Py_CLEAR(clear_module_state->__pyx_kp_s_DualNum_c_Dual_c_pyx);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c);
@@ -2484,7 +2521,11 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___init);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___mul);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___pow);
+  Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___radd);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___repr);
+  Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___rmul);
+  Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___rsub);
+  Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___rtruediv);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___sub);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c___truediv);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c_acos);
@@ -2496,19 +2537,21 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c_get_dual);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c_get_real);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c_log);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_Dual_c_real);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c_sin);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c_sinh);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c_sqrt);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c_tan);
   Py_CLEAR(clear_module_state->__pyx_n_s_Dual_c_tanh);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_Dual_real);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Expected_dual_to_be_of_type_floa);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Expected_real_to_be_of_type_floa);
   Py_CLEAR(clear_module_state->__pyx_kp_u_Logarithm_of_a_non_positive_numb);
   Py_CLEAR(clear_module_state->__pyx_n_s_TypeError);
   Py_CLEAR(clear_module_state->__pyx_n_s_ValueError);
-  Py_CLEAR(clear_module_state->__pyx_n_s__3);
-  Py_CLEAR(clear_module_state->__pyx_n_s__31);
+  Py_CLEAR(clear_module_state->__pyx_n_s_ZeroDivisionError);
+  Py_CLEAR(clear_module_state->__pyx_kp_u__2);
+  Py_CLEAR(clear_module_state->__pyx_n_s__36);
+  Py_CLEAR(clear_module_state->__pyx_n_s__4);
   Py_CLEAR(clear_module_state->__pyx_n_s_acos);
   Py_CLEAR(clear_module_state->__pyx_n_s_add);
   Py_CLEAR(clear_module_state->__pyx_n_s_asin);
@@ -2516,9 +2559,11 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_atan);
   Py_CLEAR(clear_module_state->__pyx_n_s_cline_in_traceback);
   Py_CLEAR(clear_module_state->__pyx_n_s_compute_derivative);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_compute_derivative_line_282);
   Py_CLEAR(clear_module_state->__pyx_n_s_cos);
   Py_CLEAR(clear_module_state->__pyx_n_s_cosh);
   Py_CLEAR(clear_module_state->__pyx_n_s_dict);
+  Py_CLEAR(clear_module_state->__pyx_kp_u_division_by_zero_is_undefined);
   Py_CLEAR(clear_module_state->__pyx_n_s_doc);
   Py_CLEAR(clear_module_state->__pyx_n_s_dual);
   Py_CLEAR(clear_module_state->__pyx_kp_u_dual_2);
@@ -2546,8 +2591,12 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_pow);
   Py_CLEAR(clear_module_state->__pyx_n_s_prepare);
   Py_CLEAR(clear_module_state->__pyx_n_s_qualname);
+  Py_CLEAR(clear_module_state->__pyx_n_s_radd);
   Py_CLEAR(clear_module_state->__pyx_n_s_real);
   Py_CLEAR(clear_module_state->__pyx_n_s_repr);
+  Py_CLEAR(clear_module_state->__pyx_n_s_rmul);
+  Py_CLEAR(clear_module_state->__pyx_n_s_rsub);
+  Py_CLEAR(clear_module_state->__pyx_n_s_rtruediv);
   Py_CLEAR(clear_module_state->__pyx_n_s_self);
   Py_CLEAR(clear_module_state->__pyx_n_s_set_name);
   Py_CLEAR(clear_module_state->__pyx_n_s_sin);
@@ -2569,23 +2618,23 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_int_0);
   Py_CLEAR(clear_module_state->__pyx_int_1);
   Py_CLEAR(clear_module_state->__pyx_int_2);
-  Py_CLEAR(clear_module_state->__pyx_tuple__2);
-  Py_CLEAR(clear_module_state->__pyx_tuple__4);
-  Py_CLEAR(clear_module_state->__pyx_tuple__6);
-  Py_CLEAR(clear_module_state->__pyx_tuple__13);
-  Py_CLEAR(clear_module_state->__pyx_tuple__29);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__5);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__7);
+  Py_CLEAR(clear_module_state->__pyx_tuple_);
+  Py_CLEAR(clear_module_state->__pyx_tuple__3);
+  Py_CLEAR(clear_module_state->__pyx_tuple__5);
+  Py_CLEAR(clear_module_state->__pyx_tuple__7);
+  Py_CLEAR(clear_module_state->__pyx_tuple__18);
+  Py_CLEAR(clear_module_state->__pyx_tuple__34);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__6);
   Py_CLEAR(clear_module_state->__pyx_codeobj__8);
   Py_CLEAR(clear_module_state->__pyx_codeobj__9);
   Py_CLEAR(clear_module_state->__pyx_codeobj__10);
   Py_CLEAR(clear_module_state->__pyx_codeobj__11);
   Py_CLEAR(clear_module_state->__pyx_codeobj__12);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__13);
   Py_CLEAR(clear_module_state->__pyx_codeobj__14);
   Py_CLEAR(clear_module_state->__pyx_codeobj__15);
   Py_CLEAR(clear_module_state->__pyx_codeobj__16);
   Py_CLEAR(clear_module_state->__pyx_codeobj__17);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__18);
   Py_CLEAR(clear_module_state->__pyx_codeobj__19);
   Py_CLEAR(clear_module_state->__pyx_codeobj__20);
   Py_CLEAR(clear_module_state->__pyx_codeobj__21);
@@ -2596,7 +2645,12 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_codeobj__26);
   Py_CLEAR(clear_module_state->__pyx_codeobj__27);
   Py_CLEAR(clear_module_state->__pyx_codeobj__28);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__29);
   Py_CLEAR(clear_module_state->__pyx_codeobj__30);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__31);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__32);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__33);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__35);
   return 0;
 }
 #endif
@@ -2617,8 +2671,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_VISIT(traverse_module_state->__pyx_kp_u_);
   Py_VISIT(traverse_module_state->__pyx_kp_s_A_class_to_represent_a_dual_num);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_Computes_the_derivative_of_a_fu);
   Py_VISIT(traverse_module_state->__pyx_n_s_DualNum_c_Dual_c);
   Py_VISIT(traverse_module_state->__pyx_kp_s_DualNum_c_Dual_c_pyx);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c);
@@ -2627,7 +2681,11 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___init);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___mul);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___pow);
+  Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___radd);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___repr);
+  Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___rmul);
+  Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___rsub);
+  Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___rtruediv);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___sub);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c___truediv);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c_acos);
@@ -2639,19 +2697,21 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c_get_dual);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c_get_real);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c_log);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_Dual_c_real);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c_sin);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c_sinh);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c_sqrt);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c_tan);
   Py_VISIT(traverse_module_state->__pyx_n_s_Dual_c_tanh);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_Dual_real);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Expected_dual_to_be_of_type_floa);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Expected_real_to_be_of_type_floa);
   Py_VISIT(traverse_module_state->__pyx_kp_u_Logarithm_of_a_non_positive_numb);
   Py_VISIT(traverse_module_state->__pyx_n_s_TypeError);
   Py_VISIT(traverse_module_state->__pyx_n_s_ValueError);
-  Py_VISIT(traverse_module_state->__pyx_n_s__3);
-  Py_VISIT(traverse_module_state->__pyx_n_s__31);
+  Py_VISIT(traverse_module_state->__pyx_n_s_ZeroDivisionError);
+  Py_VISIT(traverse_module_state->__pyx_kp_u__2);
+  Py_VISIT(traverse_module_state->__pyx_n_s__36);
+  Py_VISIT(traverse_module_state->__pyx_n_s__4);
   Py_VISIT(traverse_module_state->__pyx_n_s_acos);
   Py_VISIT(traverse_module_state->__pyx_n_s_add);
   Py_VISIT(traverse_module_state->__pyx_n_s_asin);
@@ -2659,9 +2719,11 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_atan);
   Py_VISIT(traverse_module_state->__pyx_n_s_cline_in_traceback);
   Py_VISIT(traverse_module_state->__pyx_n_s_compute_derivative);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_compute_derivative_line_282);
   Py_VISIT(traverse_module_state->__pyx_n_s_cos);
   Py_VISIT(traverse_module_state->__pyx_n_s_cosh);
   Py_VISIT(traverse_module_state->__pyx_n_s_dict);
+  Py_VISIT(traverse_module_state->__pyx_kp_u_division_by_zero_is_undefined);
   Py_VISIT(traverse_module_state->__pyx_n_s_doc);
   Py_VISIT(traverse_module_state->__pyx_n_s_dual);
   Py_VISIT(traverse_module_state->__pyx_kp_u_dual_2);
@@ -2689,8 +2751,12 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_pow);
   Py_VISIT(traverse_module_state->__pyx_n_s_prepare);
   Py_VISIT(traverse_module_state->__pyx_n_s_qualname);
+  Py_VISIT(traverse_module_state->__pyx_n_s_radd);
   Py_VISIT(traverse_module_state->__pyx_n_s_real);
   Py_VISIT(traverse_module_state->__pyx_n_s_repr);
+  Py_VISIT(traverse_module_state->__pyx_n_s_rmul);
+  Py_VISIT(traverse_module_state->__pyx_n_s_rsub);
+  Py_VISIT(traverse_module_state->__pyx_n_s_rtruediv);
   Py_VISIT(traverse_module_state->__pyx_n_s_self);
   Py_VISIT(traverse_module_state->__pyx_n_s_set_name);
   Py_VISIT(traverse_module_state->__pyx_n_s_sin);
@@ -2712,23 +2778,23 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_int_0);
   Py_VISIT(traverse_module_state->__pyx_int_1);
   Py_VISIT(traverse_module_state->__pyx_int_2);
-  Py_VISIT(traverse_module_state->__pyx_tuple__2);
-  Py_VISIT(traverse_module_state->__pyx_tuple__4);
-  Py_VISIT(traverse_module_state->__pyx_tuple__6);
-  Py_VISIT(traverse_module_state->__pyx_tuple__13);
-  Py_VISIT(traverse_module_state->__pyx_tuple__29);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__5);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__7);
+  Py_VISIT(traverse_module_state->__pyx_tuple_);
+  Py_VISIT(traverse_module_state->__pyx_tuple__3);
+  Py_VISIT(traverse_module_state->__pyx_tuple__5);
+  Py_VISIT(traverse_module_state->__pyx_tuple__7);
+  Py_VISIT(traverse_module_state->__pyx_tuple__18);
+  Py_VISIT(traverse_module_state->__pyx_tuple__34);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__6);
   Py_VISIT(traverse_module_state->__pyx_codeobj__8);
   Py_VISIT(traverse_module_state->__pyx_codeobj__9);
   Py_VISIT(traverse_module_state->__pyx_codeobj__10);
   Py_VISIT(traverse_module_state->__pyx_codeobj__11);
   Py_VISIT(traverse_module_state->__pyx_codeobj__12);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__13);
   Py_VISIT(traverse_module_state->__pyx_codeobj__14);
   Py_VISIT(traverse_module_state->__pyx_codeobj__15);
   Py_VISIT(traverse_module_state->__pyx_codeobj__16);
   Py_VISIT(traverse_module_state->__pyx_codeobj__17);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__18);
   Py_VISIT(traverse_module_state->__pyx_codeobj__19);
   Py_VISIT(traverse_module_state->__pyx_codeobj__20);
   Py_VISIT(traverse_module_state->__pyx_codeobj__21);
@@ -2739,7 +2805,12 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_codeobj__26);
   Py_VISIT(traverse_module_state->__pyx_codeobj__27);
   Py_VISIT(traverse_module_state->__pyx_codeobj__28);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__29);
   Py_VISIT(traverse_module_state->__pyx_codeobj__30);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__31);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__32);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__33);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__35);
   return 0;
 }
 #endif
@@ -2770,8 +2841,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #endif
 #if CYTHON_USE_MODULE_STATE
 #endif
-#define __pyx_kp_u_ __pyx_mstate_global->__pyx_kp_u_
 #define __pyx_kp_s_A_class_to_represent_a_dual_num __pyx_mstate_global->__pyx_kp_s_A_class_to_represent_a_dual_num
+#define __pyx_kp_u_Computes_the_derivative_of_a_fu __pyx_mstate_global->__pyx_kp_u_Computes_the_derivative_of_a_fu
 #define __pyx_n_s_DualNum_c_Dual_c __pyx_mstate_global->__pyx_n_s_DualNum_c_Dual_c
 #define __pyx_kp_s_DualNum_c_Dual_c_pyx __pyx_mstate_global->__pyx_kp_s_DualNum_c_Dual_c_pyx
 #define __pyx_n_s_Dual_c __pyx_mstate_global->__pyx_n_s_Dual_c
@@ -2780,7 +2851,11 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_Dual_c___init __pyx_mstate_global->__pyx_n_s_Dual_c___init
 #define __pyx_n_s_Dual_c___mul __pyx_mstate_global->__pyx_n_s_Dual_c___mul
 #define __pyx_n_s_Dual_c___pow __pyx_mstate_global->__pyx_n_s_Dual_c___pow
+#define __pyx_n_s_Dual_c___radd __pyx_mstate_global->__pyx_n_s_Dual_c___radd
 #define __pyx_n_s_Dual_c___repr __pyx_mstate_global->__pyx_n_s_Dual_c___repr
+#define __pyx_n_s_Dual_c___rmul __pyx_mstate_global->__pyx_n_s_Dual_c___rmul
+#define __pyx_n_s_Dual_c___rsub __pyx_mstate_global->__pyx_n_s_Dual_c___rsub
+#define __pyx_n_s_Dual_c___rtruediv __pyx_mstate_global->__pyx_n_s_Dual_c___rtruediv
 #define __pyx_n_s_Dual_c___sub __pyx_mstate_global->__pyx_n_s_Dual_c___sub
 #define __pyx_n_s_Dual_c___truediv __pyx_mstate_global->__pyx_n_s_Dual_c___truediv
 #define __pyx_n_s_Dual_c_acos __pyx_mstate_global->__pyx_n_s_Dual_c_acos
@@ -2792,19 +2867,21 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_Dual_c_get_dual __pyx_mstate_global->__pyx_n_s_Dual_c_get_dual
 #define __pyx_n_s_Dual_c_get_real __pyx_mstate_global->__pyx_n_s_Dual_c_get_real
 #define __pyx_n_s_Dual_c_log __pyx_mstate_global->__pyx_n_s_Dual_c_log
-#define __pyx_kp_u_Dual_c_real __pyx_mstate_global->__pyx_kp_u_Dual_c_real
 #define __pyx_n_s_Dual_c_sin __pyx_mstate_global->__pyx_n_s_Dual_c_sin
 #define __pyx_n_s_Dual_c_sinh __pyx_mstate_global->__pyx_n_s_Dual_c_sinh
 #define __pyx_n_s_Dual_c_sqrt __pyx_mstate_global->__pyx_n_s_Dual_c_sqrt
 #define __pyx_n_s_Dual_c_tan __pyx_mstate_global->__pyx_n_s_Dual_c_tan
 #define __pyx_n_s_Dual_c_tanh __pyx_mstate_global->__pyx_n_s_Dual_c_tanh
+#define __pyx_kp_u_Dual_real __pyx_mstate_global->__pyx_kp_u_Dual_real
 #define __pyx_kp_u_Expected_dual_to_be_of_type_floa __pyx_mstate_global->__pyx_kp_u_Expected_dual_to_be_of_type_floa
 #define __pyx_kp_u_Expected_real_to_be_of_type_floa __pyx_mstate_global->__pyx_kp_u_Expected_real_to_be_of_type_floa
 #define __pyx_kp_u_Logarithm_of_a_non_positive_numb __pyx_mstate_global->__pyx_kp_u_Logarithm_of_a_non_positive_numb
 #define __pyx_n_s_TypeError __pyx_mstate_global->__pyx_n_s_TypeError
 #define __pyx_n_s_ValueError __pyx_mstate_global->__pyx_n_s_ValueError
-#define __pyx_n_s__3 __pyx_mstate_global->__pyx_n_s__3
-#define __pyx_n_s__31 __pyx_mstate_global->__pyx_n_s__31
+#define __pyx_n_s_ZeroDivisionError __pyx_mstate_global->__pyx_n_s_ZeroDivisionError
+#define __pyx_kp_u__2 __pyx_mstate_global->__pyx_kp_u__2
+#define __pyx_n_s__36 __pyx_mstate_global->__pyx_n_s__36
+#define __pyx_n_s__4 __pyx_mstate_global->__pyx_n_s__4
 #define __pyx_n_s_acos __pyx_mstate_global->__pyx_n_s_acos
 #define __pyx_n_s_add __pyx_mstate_global->__pyx_n_s_add
 #define __pyx_n_s_asin __pyx_mstate_global->__pyx_n_s_asin
@@ -2812,9 +2889,11 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_atan __pyx_mstate_global->__pyx_n_s_atan
 #define __pyx_n_s_cline_in_traceback __pyx_mstate_global->__pyx_n_s_cline_in_traceback
 #define __pyx_n_s_compute_derivative __pyx_mstate_global->__pyx_n_s_compute_derivative
+#define __pyx_kp_u_compute_derivative_line_282 __pyx_mstate_global->__pyx_kp_u_compute_derivative_line_282
 #define __pyx_n_s_cos __pyx_mstate_global->__pyx_n_s_cos
 #define __pyx_n_s_cosh __pyx_mstate_global->__pyx_n_s_cosh
 #define __pyx_n_s_dict __pyx_mstate_global->__pyx_n_s_dict
+#define __pyx_kp_u_division_by_zero_is_undefined __pyx_mstate_global->__pyx_kp_u_division_by_zero_is_undefined
 #define __pyx_n_s_doc __pyx_mstate_global->__pyx_n_s_doc
 #define __pyx_n_s_dual __pyx_mstate_global->__pyx_n_s_dual
 #define __pyx_kp_u_dual_2 __pyx_mstate_global->__pyx_kp_u_dual_2
@@ -2842,8 +2921,12 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_pow __pyx_mstate_global->__pyx_n_s_pow
 #define __pyx_n_s_prepare __pyx_mstate_global->__pyx_n_s_prepare
 #define __pyx_n_s_qualname __pyx_mstate_global->__pyx_n_s_qualname
+#define __pyx_n_s_radd __pyx_mstate_global->__pyx_n_s_radd
 #define __pyx_n_s_real __pyx_mstate_global->__pyx_n_s_real
 #define __pyx_n_s_repr __pyx_mstate_global->__pyx_n_s_repr
+#define __pyx_n_s_rmul __pyx_mstate_global->__pyx_n_s_rmul
+#define __pyx_n_s_rsub __pyx_mstate_global->__pyx_n_s_rsub
+#define __pyx_n_s_rtruediv __pyx_mstate_global->__pyx_n_s_rtruediv
 #define __pyx_n_s_self __pyx_mstate_global->__pyx_n_s_self
 #define __pyx_n_s_set_name __pyx_mstate_global->__pyx_n_s_set_name
 #define __pyx_n_s_sin __pyx_mstate_global->__pyx_n_s_sin
@@ -2865,23 +2948,23 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_int_0 __pyx_mstate_global->__pyx_int_0
 #define __pyx_int_1 __pyx_mstate_global->__pyx_int_1
 #define __pyx_int_2 __pyx_mstate_global->__pyx_int_2
-#define __pyx_tuple__2 __pyx_mstate_global->__pyx_tuple__2
-#define __pyx_tuple__4 __pyx_mstate_global->__pyx_tuple__4
-#define __pyx_tuple__6 __pyx_mstate_global->__pyx_tuple__6
-#define __pyx_tuple__13 __pyx_mstate_global->__pyx_tuple__13
-#define __pyx_tuple__29 __pyx_mstate_global->__pyx_tuple__29
-#define __pyx_codeobj__5 __pyx_mstate_global->__pyx_codeobj__5
-#define __pyx_codeobj__7 __pyx_mstate_global->__pyx_codeobj__7
+#define __pyx_tuple_ __pyx_mstate_global->__pyx_tuple_
+#define __pyx_tuple__3 __pyx_mstate_global->__pyx_tuple__3
+#define __pyx_tuple__5 __pyx_mstate_global->__pyx_tuple__5
+#define __pyx_tuple__7 __pyx_mstate_global->__pyx_tuple__7
+#define __pyx_tuple__18 __pyx_mstate_global->__pyx_tuple__18
+#define __pyx_tuple__34 __pyx_mstate_global->__pyx_tuple__34
+#define __pyx_codeobj__6 __pyx_mstate_global->__pyx_codeobj__6
 #define __pyx_codeobj__8 __pyx_mstate_global->__pyx_codeobj__8
 #define __pyx_codeobj__9 __pyx_mstate_global->__pyx_codeobj__9
 #define __pyx_codeobj__10 __pyx_mstate_global->__pyx_codeobj__10
 #define __pyx_codeobj__11 __pyx_mstate_global->__pyx_codeobj__11
 #define __pyx_codeobj__12 __pyx_mstate_global->__pyx_codeobj__12
+#define __pyx_codeobj__13 __pyx_mstate_global->__pyx_codeobj__13
 #define __pyx_codeobj__14 __pyx_mstate_global->__pyx_codeobj__14
 #define __pyx_codeobj__15 __pyx_mstate_global->__pyx_codeobj__15
 #define __pyx_codeobj__16 __pyx_mstate_global->__pyx_codeobj__16
 #define __pyx_codeobj__17 __pyx_mstate_global->__pyx_codeobj__17
-#define __pyx_codeobj__18 __pyx_mstate_global->__pyx_codeobj__18
 #define __pyx_codeobj__19 __pyx_mstate_global->__pyx_codeobj__19
 #define __pyx_codeobj__20 __pyx_mstate_global->__pyx_codeobj__20
 #define __pyx_codeobj__21 __pyx_mstate_global->__pyx_codeobj__21
@@ -2892,10 +2975,15 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__26 __pyx_mstate_global->__pyx_codeobj__26
 #define __pyx_codeobj__27 __pyx_mstate_global->__pyx_codeobj__27
 #define __pyx_codeobj__28 __pyx_mstate_global->__pyx_codeobj__28
+#define __pyx_codeobj__29 __pyx_mstate_global->__pyx_codeobj__29
 #define __pyx_codeobj__30 __pyx_mstate_global->__pyx_codeobj__30
+#define __pyx_codeobj__31 __pyx_mstate_global->__pyx_codeobj__31
+#define __pyx_codeobj__32 __pyx_mstate_global->__pyx_codeobj__32
+#define __pyx_codeobj__33 __pyx_mstate_global->__pyx_codeobj__33
+#define __pyx_codeobj__35 __pyx_mstate_global->__pyx_codeobj__35
 /* #### Code section: module_code ### */
 
-/* "DualNum_c/Dual_c.pyx":17
+/* "DualNum_c/Dual_c.pyx":25
  * 
  *     # Special Methods
  *     def __init__(self, real, dual):             # <<<<<<<<<<<<<<
@@ -2963,7 +3051,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -2971,9 +3059,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 17, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 25, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -2981,14 +3069,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 17, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 17, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 25, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__init__") < 0)) __PYX_ERR(0, 17, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__init__") < 0)) __PYX_ERR(0, 25, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
@@ -3003,7 +3091,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 17, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 25, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3045,7 +3133,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 1);
 
-  /* "DualNum_c/Dual_c.pyx":35
+  /* "DualNum_c/Dual_c.pyx":43
  *             If 'real' or 'dual' is not of type float or int.
  *         """
  *         if not isinstance(real, (float, int)):             # <<<<<<<<<<<<<<
@@ -3064,14 +3152,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
   __pyx_t_2 = (!__pyx_t_1);
   if (unlikely(__pyx_t_2)) {
 
-    /* "DualNum_c/Dual_c.pyx":36
+    /* "DualNum_c/Dual_c.pyx":44
  *         """
  *         if not isinstance(real, (float, int)):
  *             raise TypeError(f"Expected 'real' to be of type float or int, got {type(real).__name__} instead.")             # <<<<<<<<<<<<<<
  * 
  *         if not isinstance(dual, (float, int)):
  */
-    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_4 = 0;
     __pyx_t_5 = 127;
@@ -3079,9 +3167,9 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
     __pyx_t_4 += 48;
     __Pyx_GIVEREF(__pyx_kp_u_Expected_real_to_be_of_type_floa);
     PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_kp_u_Expected_real_to_be_of_type_floa);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)Py_TYPE(__pyx_v_real)), __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)Py_TYPE(__pyx_v_real)), __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_5;
@@ -3093,17 +3181,17 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
     __pyx_t_4 += 9;
     __Pyx_GIVEREF(__pyx_kp_u_instead);
     PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_kp_u_instead);
-    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_3, 3, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_3, 3, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 36, __pyx_L1_error)
+    __PYX_ERR(0, 44, __pyx_L1_error)
 
-    /* "DualNum_c/Dual_c.pyx":35
+    /* "DualNum_c/Dual_c.pyx":43
  *             If 'real' or 'dual' is not of type float or int.
  *         """
  *         if not isinstance(real, (float, int)):             # <<<<<<<<<<<<<<
@@ -3112,7 +3200,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "DualNum_c/Dual_c.pyx":38
+  /* "DualNum_c/Dual_c.pyx":46
  *             raise TypeError(f"Expected 'real' to be of type float or int, got {type(real).__name__} instead.")
  * 
  *         if not isinstance(dual, (float, int)):             # <<<<<<<<<<<<<<
@@ -3131,14 +3219,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
   __pyx_t_1 = (!__pyx_t_2);
   if (unlikely(__pyx_t_1)) {
 
-    /* "DualNum_c/Dual_c.pyx":39
+    /* "DualNum_c/Dual_c.pyx":47
  * 
  *         if not isinstance(dual, (float, int)):
  *             raise TypeError(f"Expected 'dual' to be of type float or int, got {type(dual).__name__} instead.")             # <<<<<<<<<<<<<<
  * 
  *         self.real = real
  */
-    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_4 = 0;
     __pyx_t_5 = 127;
@@ -3146,9 +3234,9 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
     __pyx_t_4 += 48;
     __Pyx_GIVEREF(__pyx_kp_u_Expected_dual_to_be_of_type_floa);
     PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_kp_u_Expected_dual_to_be_of_type_floa);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)Py_TYPE(__pyx_v_dual)), __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)Py_TYPE(__pyx_v_dual)), __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 47, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 47, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_5;
@@ -3160,17 +3248,17 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
     __pyx_t_4 += 9;
     __Pyx_GIVEREF(__pyx_kp_u_instead);
     PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_kp_u_instead);
-    __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_3, 3, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_3, 3, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 47, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 39, __pyx_L1_error)
+    __PYX_ERR(0, 47, __pyx_L1_error)
 
-    /* "DualNum_c/Dual_c.pyx":38
+    /* "DualNum_c/Dual_c.pyx":46
  *             raise TypeError(f"Expected 'real' to be of type float or int, got {type(real).__name__} instead.")
  * 
  *         if not isinstance(dual, (float, int)):             # <<<<<<<<<<<<<<
@@ -3179,25 +3267,25 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "DualNum_c/Dual_c.pyx":41
+  /* "DualNum_c/Dual_c.pyx":49
  *             raise TypeError(f"Expected 'dual' to be of type float or int, got {type(dual).__name__} instead.")
  * 
  *         self.real = real             # <<<<<<<<<<<<<<
  *         self.dual = dual
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_real, __pyx_v_real) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_real, __pyx_v_real) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":42
+  /* "DualNum_c/Dual_c.pyx":50
  * 
  *         self.real = real
  *         self.dual = dual             # <<<<<<<<<<<<<<
  * 
  *     def __add__(self, other):
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_dual, __pyx_v_dual) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_dual, __pyx_v_dual) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":17
+  /* "DualNum_c/Dual_c.pyx":25
  * 
  *     # Special Methods
  *     def __init__(self, real, dual):             # <<<<<<<<<<<<<<
@@ -3220,12 +3308,12 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c___init__(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":44
+/* "DualNum_c/Dual_c.pyx":52
  *         self.dual = dual
  * 
  *     def __add__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Adds two dual numbers together.
+ *         Adds a dual number and another dual number or scalar.
  */
 
 /* Python wrapper */
@@ -3236,7 +3324,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_2__add__, "\n        Adds two dual numbers together.\n\n        Parameters\n        ----------\n        other : Dual\n            The dual number to add to the current dual number.\n        ");
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_2__add__, "\n        Adds a dual number and another dual number or scalar.\n\n        Parameters\n        ----------\n        other : Dual, int, or float\n            The value to add to the current dual number.\n        ");
 static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_3__add__ = {"__add__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_3__add__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_2__add__};
 static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_3__add__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -3285,7 +3373,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 52, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -3293,14 +3381,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 52, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__add__", 1, 2, 2, 1); __PYX_ERR(0, 44, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__add__", 1, 2, 2, 1); __PYX_ERR(0, 52, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__add__") < 0)) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__add__") < 0)) __PYX_ERR(0, 52, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -3313,7 +3401,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__add__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 44, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__add__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 52, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3351,47 +3439,48 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_2__add__(CYTHON_UNUSED PyOb
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
   unsigned int __pyx_t_8;
+  int __pyx_t_9;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__add__", 1);
 
-  /* "DualNum_c/Dual_c.pyx":53
- *             The dual number to add to the current dual number.
+  /* "DualNum_c/Dual_c.pyx":61
+ *             The value to add to the current dual number.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return Dual_c(self.real + other.real, self.dual + other.dual)
- *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
+ *         if isinstance(other, (float, int)):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "DualNum_c/Dual_c.pyx":54
+    /* "DualNum_c/Dual_c.pyx":62
  *         """
  *         if isinstance(other, Dual_c):
  *             return Dual_c(self.real + other.real, self.dual + other.dual)             # <<<<<<<<<<<<<<
- *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
- * 
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real + other, self.dual)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyNumber_Add(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Add(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = PyNumber_Add(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_Add(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -3415,7 +3504,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_2__add__(CYTHON_UNUSED PyOb
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -3423,23 +3512,95 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_2__add__(CYTHON_UNUSED PyOb
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "DualNum_c/Dual_c.pyx":53
- *             The dual number to add to the current dual number.
+    /* "DualNum_c/Dual_c.pyx":61
+ *             The value to add to the current dual number.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return Dual_c(self.real + other.real, self.dual + other.dual)
+ *         if isinstance(other, (float, int)):
+ */
+  }
+
+  /* "DualNum_c/Dual_c.pyx":63
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real + other.real, self.dual + other.dual)
+ *         if isinstance(other, (float, int)):             # <<<<<<<<<<<<<<
+ *             return Dual_c(self.real + other, self.dual)
+ *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
+ */
+  __pyx_t_9 = PyFloat_Check(__pyx_v_other); 
+  if (!__pyx_t_9) {
+  } else {
+    __pyx_t_2 = __pyx_t_9;
+    goto __pyx_L5_bool_binop_done;
+  }
+  __pyx_t_9 = PyInt_Check(__pyx_v_other); 
+  __pyx_t_2 = __pyx_t_9;
+  __pyx_L5_bool_binop_done:;
+  if (__pyx_t_2) {
+
+    /* "DualNum_c/Dual_c.pyx":64
+ *             return Dual_c(self.real + other.real, self.dual + other.dual)
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real + other, self.dual)             # <<<<<<<<<<<<<<
+ *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_6 = PyNumber_Add(__pyx_t_7, __pyx_v_other); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_4 = NULL;
+    __pyx_t_8 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_4)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_4);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_3, function);
+        __pyx_t_8 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[3] = {__pyx_t_4, __pyx_t_6, __pyx_t_7};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_8, 2+__pyx_t_8);
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    }
+    __pyx_r = __pyx_t_1;
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "DualNum_c/Dual_c.pyx":63
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real + other.real, self.dual + other.dual)
+ *         if isinstance(other, (float, int)):             # <<<<<<<<<<<<<<
+ *             return Dual_c(self.real + other, self.dual)
  *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
  */
   }
 
-  /* "DualNum_c/Dual_c.pyx":55
- *         if isinstance(other, Dual_c):
- *             return Dual_c(self.real + other.real, self.dual + other.dual)
+  /* "DualNum_c/Dual_c.pyx":65
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real + other, self.dual)
  *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))             # <<<<<<<<<<<<<<
  * 
- *     def __sub__(self, other):
+ *     def __radd__(self, other):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_7 = NULL;
   __pyx_t_8 = 0;
@@ -3459,23 +3620,23 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_2__add__(CYTHON_UNUSED PyOb
     PyObject *__pyx_callargs[3] = {__pyx_t_7, ((PyObject *)Py_TYPE(__pyx_v_self)), ((PyObject *)Py_TYPE(__pyx_v_other))};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_8, 2+__pyx_t_8);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __PYX_ERR(0, 55, __pyx_L1_error)
+  __PYX_ERR(0, 65, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":44
+  /* "DualNum_c/Dual_c.pyx":52
  *         self.dual = dual
  * 
  *     def __add__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Adds two dual numbers together.
+ *         Adds a dual number and another dual number or scalar.
  */
 
   /* function exit code */
@@ -3494,25 +3655,214 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_2__add__(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":57
+/* "DualNum_c/Dual_c.pyx":67
  *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
  * 
- *     def __sub__(self, other):             # <<<<<<<<<<<<<<
+ *     def __radd__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Subtracts one dual number from another.
+ *         Adds a dual number and another dual number or scalar.
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_5__sub__(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_5__radd__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_4__sub__, "\n        Subtracts one dual number from another.\n\n        Parameters\n        ----------\n        other : Dual\n            The dual number to subtract from the current dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_5__sub__ = {"__sub__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_5__sub__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_4__sub__};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_5__sub__(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_4__radd__, "\n        Adds a dual number and another dual number or scalar.\n\n        Parameters\n        ----------\n        other : Dual, int, or float\n            The value to add to the current dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_5__radd__ = {"__radd__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_5__radd__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_4__radd__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_5__radd__(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_other = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[2] = {0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__radd__ (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_other,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_self)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 67, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_other)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 67, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("__radd__", 1, 2, 2, 1); __PYX_ERR(0, 67, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__radd__") < 0)) __PYX_ERR(0, 67, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 2)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+      values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_other = values[1];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__radd__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 67, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_AddTraceback("DualNum_c.Dual_c.Dual_c.__radd__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__radd__(__pyx_self, __pyx_v_self, __pyx_v_other);
+
+  /* function exit code */
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__radd__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  unsigned int __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__radd__", 1);
+
+  /* "DualNum_c/Dual_c.pyx":76
+ *             The value to add to the current dual number.
+ *         """
+ *         return self.__add__(other)             # <<<<<<<<<<<<<<
+ * 
+ *     def __sub__(self, other):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_add); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  __pyx_t_4 = 0;
+  #if CYTHON_UNPACK_METHODS
+  if (likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_v_other};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "DualNum_c/Dual_c.pyx":67
+ *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __radd__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Adds a dual number and another dual number or scalar.
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("DualNum_c.Dual_c.Dual_c.__radd__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "DualNum_c/Dual_c.pyx":78
+ *         return self.__add__(other)
+ * 
+ *     def __sub__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Subtracts one dual number from another dual or int/float.
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_7__sub__(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_6__sub__, "\n        Subtracts one dual number from another dual or int/float.\n\n        Parameters\n        ----------\n        other : Dual, int, or float\n            The value to subtract from the current dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_7__sub__ = {"__sub__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_7__sub__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_6__sub__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_7__sub__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3559,7 +3909,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 57, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -3567,14 +3917,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 57, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__sub__", 1, 2, 2, 1); __PYX_ERR(0, 57, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__sub__", 1, 2, 2, 1); __PYX_ERR(0, 78, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__sub__") < 0)) __PYX_ERR(0, 57, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__sub__") < 0)) __PYX_ERR(0, 78, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -3587,7 +3937,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__sub__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 57, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__sub__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 78, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3601,7 +3951,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__sub__(__pyx_self, __pyx_v_self, __pyx_v_other);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__sub__(__pyx_self, __pyx_v_self, __pyx_v_other);
 
   /* function exit code */
   {
@@ -3614,7 +3964,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__sub__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__sub__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3625,47 +3975,48 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__sub__(CYTHON_UNUSED PyOb
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
   unsigned int __pyx_t_8;
+  int __pyx_t_9;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__sub__", 1);
 
-  /* "DualNum_c/Dual_c.pyx":66
- *             The dual number to subtract from the current dual number.
+  /* "DualNum_c/Dual_c.pyx":87
+ *             The value to subtract from the current dual number.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return Dual_c(self.real - other.real, self.dual - other.dual)
- *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
+ *         if isinstance(other, (float, int)):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "DualNum_c/Dual_c.pyx":67
+    /* "DualNum_c/Dual_c.pyx":88
  *         """
  *         if isinstance(other, Dual_c):
  *             return Dual_c(self.real - other.real, self.dual - other.dual)             # <<<<<<<<<<<<<<
- *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
- * 
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real - other, self.dual)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyNumber_Subtract(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Subtract(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = PyNumber_Subtract(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_Subtract(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -3689,7 +4040,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__sub__(CYTHON_UNUSED PyOb
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -3697,23 +4048,95 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__sub__(CYTHON_UNUSED PyOb
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "DualNum_c/Dual_c.pyx":66
- *             The dual number to subtract from the current dual number.
+    /* "DualNum_c/Dual_c.pyx":87
+ *             The value to subtract from the current dual number.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return Dual_c(self.real - other.real, self.dual - other.dual)
+ *         if isinstance(other, (float, int)):
+ */
+  }
+
+  /* "DualNum_c/Dual_c.pyx":89
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real - other.real, self.dual - other.dual)
+ *         if isinstance(other, (float, int)):             # <<<<<<<<<<<<<<
+ *             return Dual_c(self.real - other, self.dual)
+ *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
+ */
+  __pyx_t_9 = PyFloat_Check(__pyx_v_other); 
+  if (!__pyx_t_9) {
+  } else {
+    __pyx_t_2 = __pyx_t_9;
+    goto __pyx_L5_bool_binop_done;
+  }
+  __pyx_t_9 = PyInt_Check(__pyx_v_other); 
+  __pyx_t_2 = __pyx_t_9;
+  __pyx_L5_bool_binop_done:;
+  if (__pyx_t_2) {
+
+    /* "DualNum_c/Dual_c.pyx":90
+ *             return Dual_c(self.real - other.real, self.dual - other.dual)
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real - other, self.dual)             # <<<<<<<<<<<<<<
+ *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_6 = PyNumber_Subtract(__pyx_t_7, __pyx_v_other); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_4 = NULL;
+    __pyx_t_8 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_4)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_4);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_3, function);
+        __pyx_t_8 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[3] = {__pyx_t_4, __pyx_t_6, __pyx_t_7};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_8, 2+__pyx_t_8);
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    }
+    __pyx_r = __pyx_t_1;
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "DualNum_c/Dual_c.pyx":89
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real - other.real, self.dual - other.dual)
+ *         if isinstance(other, (float, int)):             # <<<<<<<<<<<<<<
+ *             return Dual_c(self.real - other, self.dual)
  *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
  */
   }
 
-  /* "DualNum_c/Dual_c.pyx":68
- *         if isinstance(other, Dual_c):
- *             return Dual_c(self.real - other.real, self.dual - other.dual)
+  /* "DualNum_c/Dual_c.pyx":91
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real - other, self.dual)
  *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))             # <<<<<<<<<<<<<<
  * 
- *     def __mul__(self, other):
+ *     def __rsub__(self, other):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a_2, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a_2, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_7 = NULL;
   __pyx_t_8 = 0;
@@ -3733,23 +4156,23 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__sub__(CYTHON_UNUSED PyOb
     PyObject *__pyx_callargs[3] = {__pyx_t_7, ((PyObject *)Py_TYPE(__pyx_v_self)), ((PyObject *)Py_TYPE(__pyx_v_other))};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_8, 2+__pyx_t_8);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __PYX_ERR(0, 68, __pyx_L1_error)
+  __PYX_ERR(0, 91, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":57
- *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
+  /* "DualNum_c/Dual_c.pyx":78
+ *         return self.__add__(other)
  * 
  *     def __sub__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Subtracts one dual number from another.
+ *         Subtracts one dual number from another dual or int/float.
  */
 
   /* function exit code */
@@ -3768,25 +4191,214 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_4__sub__(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":70
+/* "DualNum_c/Dual_c.pyx":93
  *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
  * 
- *     def __mul__(self, other):             # <<<<<<<<<<<<<<
+ *     def __rsub__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Multiplies two dual numbers together.
+ *         Subtracts one dual number from another dual or int/float.
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_7__mul__(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_9__rsub__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_6__mul__, "\n        Multiplies two dual numbers together.\n\n        Parameters\n        ----------\n        other : Dual\n            The dual number to multiply with the current dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_7__mul__ = {"__mul__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_7__mul__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_6__mul__};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_7__mul__(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_8__rsub__, "\n        Subtracts one dual number from another dual or int/float.\n\n        Parameters\n        ----------\n        other : Dual, int, or float\n            The value to subtract from the current dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_9__rsub__ = {"__rsub__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_9__rsub__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_8__rsub__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_9__rsub__(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_other = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[2] = {0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__rsub__ (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_other,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_self)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 93, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_other)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 93, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("__rsub__", 1, 2, 2, 1); __PYX_ERR(0, 93, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__rsub__") < 0)) __PYX_ERR(0, 93, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 2)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+      values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_other = values[1];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__rsub__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 93, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_AddTraceback("DualNum_c.Dual_c.Dual_c.__rsub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__rsub__(__pyx_self, __pyx_v_self, __pyx_v_other);
+
+  /* function exit code */
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__rsub__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  unsigned int __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__rsub__", 1);
+
+  /* "DualNum_c/Dual_c.pyx":102
+ *             The value to subtract from the current dual number.
+ *         """
+ *         return self.__sub__(other)             # <<<<<<<<<<<<<<
+ * 
+ *     def __mul__(self, other):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_sub); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  __pyx_t_4 = 0;
+  #if CYTHON_UNPACK_METHODS
+  if (likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_v_other};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "DualNum_c/Dual_c.pyx":93
+ *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rsub__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Subtracts one dual number from another dual or int/float.
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("DualNum_c.Dual_c.Dual_c.__rsub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "DualNum_c/Dual_c.pyx":104
+ *         return self.__sub__(other)
+ * 
+ *     def __mul__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Multiplies a dual number with another dual number or an int/float.
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_11__mul__(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_10__mul__, "\n        Multiplies a dual number with another dual number or an int/float.\n\n        Parameters\n        ----------\n        other : Dual, int, or float\n            The value to multiply with the current dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_11__mul__ = {"__mul__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_11__mul__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_10__mul__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_11__mul__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3833,7 +4445,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 70, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 104, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -3841,14 +4453,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 70, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 104, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__mul__", 1, 2, 2, 1); __PYX_ERR(0, 70, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__mul__", 1, 2, 2, 1); __PYX_ERR(0, 104, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__mul__") < 0)) __PYX_ERR(0, 70, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__mul__") < 0)) __PYX_ERR(0, 104, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -3861,7 +4473,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__mul__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 70, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__mul__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 104, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3875,7 +4487,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__mul__(__pyx_self, __pyx_v_self, __pyx_v_other);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__mul__(__pyx_self, __pyx_v_self, __pyx_v_other);
 
   /* function exit code */
   {
@@ -3888,7 +4500,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__mul__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__mul__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3900,59 +4512,60 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__mul__(CYTHON_UNUSED PyOb
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
   unsigned int __pyx_t_9;
+  int __pyx_t_10;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__mul__", 1);
 
-  /* "DualNum_c/Dual_c.pyx":79
- *             The dual number to multiply with the current dual number.
+  /* "DualNum_c/Dual_c.pyx":113
+ *             The value to multiply with the current dual number.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return Dual_c(self.real * other.real, self.real * other.dual + self.dual * other.real)
- *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
+ *         if isinstance(other, (float, int)):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "DualNum_c/Dual_c.pyx":80
+    /* "DualNum_c/Dual_c.pyx":114
  *         """
  *         if isinstance(other, Dual_c):
  *             return Dual_c(self.real * other.real, self.real * other.dual + self.dual * other.real)             # <<<<<<<<<<<<<<
- *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
- * 
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real * other, self.dual * other)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_8 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_8 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Add(__pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Add(__pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -3976,7 +4589,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__mul__(CYTHON_UNUSED PyOb
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -3984,32 +4597,107 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__mul__(CYTHON_UNUSED PyOb
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "DualNum_c/Dual_c.pyx":79
- *             The dual number to multiply with the current dual number.
+    /* "DualNum_c/Dual_c.pyx":113
+ *             The value to multiply with the current dual number.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return Dual_c(self.real * other.real, self.real * other.dual + self.dual * other.real)
+ *         if isinstance(other, (float, int)):
+ */
+  }
+
+  /* "DualNum_c/Dual_c.pyx":115
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real * other.real, self.real * other.dual + self.dual * other.real)
+ *         if isinstance(other, (float, int)):             # <<<<<<<<<<<<<<
+ *             return Dual_c(self.real * other, self.dual * other)
+ *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
+ */
+  __pyx_t_10 = PyFloat_Check(__pyx_v_other); 
+  if (!__pyx_t_10) {
+  } else {
+    __pyx_t_2 = __pyx_t_10;
+    goto __pyx_L5_bool_binop_done;
+  }
+  __pyx_t_10 = PyInt_Check(__pyx_v_other); 
+  __pyx_t_2 = __pyx_t_10;
+  __pyx_L5_bool_binop_done:;
+  if (__pyx_t_2) {
+
+    /* "DualNum_c/Dual_c.pyx":116
+ *             return Dual_c(self.real * other.real, self.real * other.dual + self.dual * other.real)
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real * other, self.dual * other)             # <<<<<<<<<<<<<<
+ *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = PyNumber_Multiply(__pyx_t_5, __pyx_v_other); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_v_other); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = NULL;
+    __pyx_t_9 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_5)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_5);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_3, function);
+        __pyx_t_9 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[3] = {__pyx_t_5, __pyx_t_6, __pyx_t_8};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_9, 2+__pyx_t_9);
+      __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    }
+    __pyx_r = __pyx_t_1;
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "DualNum_c/Dual_c.pyx":115
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real * other.real, self.real * other.dual + self.dual * other.real)
+ *         if isinstance(other, (float, int)):             # <<<<<<<<<<<<<<
+ *             return Dual_c(self.real * other, self.dual * other)
  *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
  */
   }
 
-  /* "DualNum_c/Dual_c.pyx":81
- *         if isinstance(other, Dual_c):
- *             return Dual_c(self.real * other.real, self.real * other.dual + self.dual * other.real)
+  /* "DualNum_c/Dual_c.pyx":117
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real * other, self.dual * other)
  *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))             # <<<<<<<<<<<<<<
  * 
- *     def __truediv__(self, other):
+ *     def __rmul__(self, other):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a_3, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a_3, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = NULL;
+  __pyx_t_8 = NULL;
   __pyx_t_9 = 0;
   #if CYTHON_UNPACK_METHODS
   if (likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_5)) {
+    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_8)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_5);
+      __Pyx_INCREF(__pyx_t_8);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_3, function);
       __pyx_t_9 = 1;
@@ -4017,26 +4705,26 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__mul__(CYTHON_UNUSED PyOb
   }
   #endif
   {
-    PyObject *__pyx_callargs[3] = {__pyx_t_5, ((PyObject *)Py_TYPE(__pyx_v_self)), ((PyObject *)Py_TYPE(__pyx_v_other))};
+    PyObject *__pyx_callargs[3] = {__pyx_t_8, ((PyObject *)Py_TYPE(__pyx_v_self)), ((PyObject *)Py_TYPE(__pyx_v_other))};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_9, 2+__pyx_t_9);
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __PYX_ERR(0, 81, __pyx_L1_error)
+  __PYX_ERR(0, 117, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":70
- *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
+  /* "DualNum_c/Dual_c.pyx":104
+ *         return self.__sub__(other)
  * 
  *     def __mul__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Multiplies two dual numbers together.
+ *         Multiplies a dual number with another dual number or an int/float.
  */
 
   /* function exit code */
@@ -4056,25 +4744,214 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_6__mul__(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":83
+/* "DualNum_c/Dual_c.pyx":119
  *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
  * 
- *     def __truediv__(self, other):             # <<<<<<<<<<<<<<
+ *     def __rmul__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Divides one dual number by another.
+ *         Multiplies a dual number with another dual number or an int/float.
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_9__truediv__(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_13__rmul__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_8__truediv__, "\n        Divides one dual number by another.\n\n        Parameters\n        ----------\n        other : Dual\n            The dual number to divide the current dual number by.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_9__truediv__ = {"__truediv__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_9__truediv__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_8__truediv__};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_9__truediv__(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_12__rmul__, "\n        Multiplies a dual number with another dual number or an int/float.\n\n        Parameters\n        ----------\n        other : Dual, int, or float\n            The value to multiply with the current dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_13__rmul__ = {"__rmul__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_13__rmul__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_12__rmul__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_13__rmul__(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_other = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[2] = {0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__rmul__ (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_other,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_self)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 119, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_other)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 119, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("__rmul__", 1, 2, 2, 1); __PYX_ERR(0, 119, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__rmul__") < 0)) __PYX_ERR(0, 119, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 2)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+      values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_other = values[1];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__rmul__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 119, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_AddTraceback("DualNum_c.Dual_c.Dual_c.__rmul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__rmul__(__pyx_self, __pyx_v_self, __pyx_v_other);
+
+  /* function exit code */
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__rmul__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  unsigned int __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__rmul__", 1);
+
+  /* "DualNum_c/Dual_c.pyx":128
+ *             The value to multiply with the current dual number.
+ *         """
+ *         return self.__mul__(other)             # <<<<<<<<<<<<<<
+ * 
+ *     def __truediv__(self, other):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mul); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  __pyx_t_4 = 0;
+  #if CYTHON_UNPACK_METHODS
+  if (likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_v_other};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "DualNum_c/Dual_c.pyx":119
+ *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rmul__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Multiplies a dual number with another dual number or an int/float.
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("DualNum_c.Dual_c.Dual_c.__rmul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "DualNum_c/Dual_c.pyx":130
+ *         return self.__mul__(other)
+ * 
+ *     def __truediv__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Divides one dual number by another dual number or an int/float.
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_15__truediv__(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_14__truediv__, "\n        Divides one dual number by another dual number or an int/float.\n\n        Parameters\n        ----------\n        other : Dual, int, or float\n            The value to divide the current dual number by.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_15__truediv__ = {"__truediv__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_15__truediv__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_14__truediv__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_15__truediv__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4121,7 +4998,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 83, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 130, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -4129,14 +5006,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 83, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 130, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__truediv__", 1, 2, 2, 1); __PYX_ERR(0, 83, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__truediv__", 1, 2, 2, 1); __PYX_ERR(0, 130, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__truediv__") < 0)) __PYX_ERR(0, 83, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__truediv__") < 0)) __PYX_ERR(0, 130, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -4149,7 +5026,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__truediv__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 83, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__truediv__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 130, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4163,7 +5040,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__truediv__(__pyx_self, __pyx_v_self, __pyx_v_other);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__truediv__(__pyx_self, __pyx_v_self, __pyx_v_other);
 
   /* function exit code */
   {
@@ -4176,7 +5053,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__truediv__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__truediv__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4188,68 +5065,104 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__truediv__(CYTHON_UNUSED 
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
   unsigned int __pyx_t_9;
+  int __pyx_t_10;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__truediv__", 1);
 
-  /* "DualNum_c/Dual_c.pyx":92
- *             The dual number to divide the current dual number by.
+  /* "DualNum_c/Dual_c.pyx":139
+ *             The value to divide the current dual number by.
  *         """
+ *         if other.real == 0:             # <<<<<<<<<<<<<<
+ *             raise ZeroDivisionError("division by zero is undefined")
+ *         if isinstance(other, Dual_c):
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = (__Pyx_PyInt_BoolEqObjC(__pyx_t_1, __pyx_int_0, 0, 0)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 139, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (unlikely(__pyx_t_2)) {
+
+    /* "DualNum_c/Dual_c.pyx":140
+ *         """
+ *         if other.real == 0:
+ *             raise ZeroDivisionError("division by zero is undefined")             # <<<<<<<<<<<<<<
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
+ */
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ZeroDivisionError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_Raise(__pyx_t_1, 0, 0, 0);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __PYX_ERR(0, 140, __pyx_L1_error)
+
+    /* "DualNum_c/Dual_c.pyx":139
+ *             The value to divide the current dual number by.
+ *         """
+ *         if other.real == 0:             # <<<<<<<<<<<<<<
+ *             raise ZeroDivisionError("division by zero is undefined")
+ *         if isinstance(other, Dual_c):
+ */
+  }
+
+  /* "DualNum_c/Dual_c.pyx":141
+ *         if other.real == 0:
+ *             raise ZeroDivisionError("division by zero is undefined")
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return Dual_c(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
- *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+ *         if isinstance(other, (float, int)):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "DualNum_c/Dual_c.pyx":93
- *         """
+    /* "DualNum_c/Dual_c.pyx":142
+ *             raise ZeroDivisionError("division by zero is undefined")
  *         if isinstance(other, Dual_c):
  *             return Dual_c(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))             # <<<<<<<<<<<<<<
- *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
- * 
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real / other, self.dual / other)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_8 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_8 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Subtract(__pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Subtract(__pyx_t_7, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = PyNumber_Power(__pyx_t_8, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_Power(__pyx_t_8, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -4273,7 +5186,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__truediv__(CYTHON_UNUSED 
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -4281,32 +5194,107 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__truediv__(CYTHON_UNUSED 
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "DualNum_c/Dual_c.pyx":92
- *             The dual number to divide the current dual number by.
- *         """
+    /* "DualNum_c/Dual_c.pyx":141
+ *         if other.real == 0:
+ *             raise ZeroDivisionError("division by zero is undefined")
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return Dual_c(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
+ *         if isinstance(other, (float, int)):
+ */
+  }
+
+  /* "DualNum_c/Dual_c.pyx":143
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
+ *         if isinstance(other, (float, int)):             # <<<<<<<<<<<<<<
+ *             return Dual_c(self.real / other, self.dual / other)
+ *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+ */
+  __pyx_t_10 = PyFloat_Check(__pyx_v_other); 
+  if (!__pyx_t_10) {
+  } else {
+    __pyx_t_2 = __pyx_t_10;
+    goto __pyx_L6_bool_binop_done;
+  }
+  __pyx_t_10 = PyInt_Check(__pyx_v_other); 
+  __pyx_t_2 = __pyx_t_10;
+  __pyx_L6_bool_binop_done:;
+  if (__pyx_t_2) {
+
+    /* "DualNum_c/Dual_c.pyx":144
+ *             return Dual_c(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real / other, self.dual / other)             # <<<<<<<<<<<<<<
+ *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 144, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 144, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __pyx_t_6 = __Pyx_PyNumber_Divide(__pyx_t_8, __pyx_v_other); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 144, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 144, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_t_8, __pyx_v_other); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 144, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __pyx_t_8 = NULL;
+    __pyx_t_9 = 0;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_8)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_8);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_3, function);
+        __pyx_t_9 = 1;
+      }
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[3] = {__pyx_t_8, __pyx_t_6, __pyx_t_7};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_9, 2+__pyx_t_9);
+      __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 144, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    }
+    __pyx_r = __pyx_t_1;
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "DualNum_c/Dual_c.pyx":143
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
+ *         if isinstance(other, (float, int)):             # <<<<<<<<<<<<<<
+ *             return Dual_c(self.real / other, self.dual / other)
  *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
  */
   }
 
-  /* "DualNum_c/Dual_c.pyx":94
- *         if isinstance(other, Dual_c):
- *             return Dual_c(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
+  /* "DualNum_c/Dual_c.pyx":145
+ *         if isinstance(other, (float, int)):
+ *             return Dual_c(self.real / other, self.dual / other)
  *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))             # <<<<<<<<<<<<<<
  * 
- *     def __pow__(self, other):
+ *     def __rtruediv__(self, other):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a_4, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a_4, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_8 = NULL;
+  __pyx_t_7 = NULL;
   __pyx_t_9 = 0;
   #if CYTHON_UNPACK_METHODS
   if (likely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_8)) {
+    __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_7)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_8);
+      __Pyx_INCREF(__pyx_t_7);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_3, function);
       __pyx_t_9 = 1;
@@ -4314,26 +5302,26 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__truediv__(CYTHON_UNUSED 
   }
   #endif
   {
-    PyObject *__pyx_callargs[3] = {__pyx_t_8, ((PyObject *)Py_TYPE(__pyx_v_self)), ((PyObject *)Py_TYPE(__pyx_v_other))};
+    PyObject *__pyx_callargs[3] = {__pyx_t_7, ((PyObject *)Py_TYPE(__pyx_v_self)), ((PyObject *)Py_TYPE(__pyx_v_other))};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_9, 2+__pyx_t_9);
-    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __PYX_ERR(0, 94, __pyx_L1_error)
+  __PYX_ERR(0, 145, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":83
- *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
+  /* "DualNum_c/Dual_c.pyx":130
+ *         return self.__mul__(other)
  * 
  *     def __truediv__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Divides one dual number by another.
+ *         Divides one dual number by another dual number or an int/float.
  */
 
   /* function exit code */
@@ -4353,8 +5341,197 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__truediv__(CYTHON_UNUSED 
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":96
+/* "DualNum_c/Dual_c.pyx":147
  *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rtruediv__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Divides one dual number by another dual number or an int/float.
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_17__rtruediv__(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_16__rtruediv__, "\n        Divides one dual number by another dual number or an int/float.\n\n        Parameters\n        ----------\n        other : Dual, int, or float\n            The value to divide the current dual number by.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_17__rtruediv__ = {"__rtruediv__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_17__rtruediv__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_16__rtruediv__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_17__rtruediv__(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_other = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[2] = {0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__rtruediv__ (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_other,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_self)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_other)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 147, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("__rtruediv__", 1, 2, 2, 1); __PYX_ERR(0, 147, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__rtruediv__") < 0)) __PYX_ERR(0, 147, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 2)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+      values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_other = values[1];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__rtruediv__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 147, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_AddTraceback("DualNum_c.Dual_c.Dual_c.__rtruediv__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16__rtruediv__(__pyx_self, __pyx_v_self, __pyx_v_other);
+
+  /* function exit code */
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16__rtruediv__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  unsigned int __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__rtruediv__", 1);
+
+  /* "DualNum_c/Dual_c.pyx":156
+ *             The value to divide the current dual number by.
+ *         """
+ *         return self.__truediv__(other)             # <<<<<<<<<<<<<<
+ * 
+ *     def __pow__(self, other):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_truediv); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  __pyx_t_4 = 0;
+  #if CYTHON_UNPACK_METHODS
+  if (likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_v_other};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "DualNum_c/Dual_c.pyx":147
+ *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rtruediv__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Divides one dual number by another dual number or an int/float.
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("DualNum_c.Dual_c.Dual_c.__rtruediv__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "DualNum_c/Dual_c.pyx":158
+ *         return self.__truediv__(other)
  * 
  *     def __pow__(self, other):             # <<<<<<<<<<<<<<
  *         """
@@ -4362,16 +5539,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_8__truediv__(CYTHON_UNUSED 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_11__pow__(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_19__pow__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_10__pow__, "\n        Raises the dual number to the power of another dual number.\n\n        Parameters\n        ----------\n        other : Dual\n            The dual number to raise the current dual number to the power of.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_11__pow__ = {"__pow__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_11__pow__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_10__pow__};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_11__pow__(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_18__pow__, "\n        Raises the dual number to the power of another dual number.\n\n        Parameters\n        ----------\n        other : Dual\n            The dual number to raise the current dual number to the power of.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_19__pow__ = {"__pow__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_19__pow__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_18__pow__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_19__pow__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4418,7 +5595,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 96, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 158, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -4426,14 +5603,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 96, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 158, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__pow__", 1, 2, 2, 1); __PYX_ERR(0, 96, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pow__", 1, 2, 2, 1); __PYX_ERR(0, 158, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__pow__") < 0)) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__pow__") < 0)) __PYX_ERR(0, 158, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -4446,7 +5623,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__pow__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 96, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__pow__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 158, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4460,7 +5637,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(__pyx_self, __pyx_v_self, __pyx_v_other);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18__pow__(__pyx_self, __pyx_v_self, __pyx_v_other);
 
   /* function exit code */
   {
@@ -4473,7 +5650,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18__pow__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4492,20 +5669,20 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__pow__", 1);
 
-  /* "DualNum_c/Dual_c.pyx":105
+  /* "DualNum_c/Dual_c.pyx":167
  *             The dual number to raise the current dual number to the power of.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return Dual_c(self.real ** other.real, self.real ** other.real * (other.dual * math.log(self.real) + other.real * self.dual / self.real))
  *         raise TypeError("unsupported operand type(s) for **: '{}' and '{}'".format(type(self), type(other)))
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 105, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "DualNum_c/Dual_c.pyx":106
+    /* "DualNum_c/Dual_c.pyx":168
  *         """
  *         if isinstance(other, Dual_c):
  *             return Dual_c(self.real ** other.real, self.real ** other.real * (other.dual * math.log(self.real) + other.real * self.dual / self.real))             # <<<<<<<<<<<<<<
@@ -4513,32 +5690,32 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyO
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyNumber_Power(__pyx_t_4, __pyx_t_5, Py_None); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Power(__pyx_t_4, __pyx_t_5, Py_None); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = PyNumber_Power(__pyx_t_5, __pyx_t_4, Py_None); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_Power(__pyx_t_5, __pyx_t_4, Py_None); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_math); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_math); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_log); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_log); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_10 = NULL;
     __pyx_t_11 = 0;
@@ -4559,33 +5736,33 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyO
       __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+1-__pyx_t_11, 1+__pyx_t_11);
       __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 106, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
-    __pyx_t_9 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_9 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyNumber_Divide(__pyx_t_8, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyNumber_Divide(__pyx_t_8, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = PyNumber_Add(__pyx_t_9, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Add(__pyx_t_9, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Multiply(__pyx_t_7, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Multiply(__pyx_t_7, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -4609,7 +5786,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyO
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -4617,7 +5794,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyO
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "DualNum_c/Dual_c.pyx":105
+    /* "DualNum_c/Dual_c.pyx":167
  *             The dual number to raise the current dual number to the power of.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
@@ -4626,14 +5803,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyO
  */
   }
 
-  /* "DualNum_c/Dual_c.pyx":107
+  /* "DualNum_c/Dual_c.pyx":169
  *         if isinstance(other, Dual_c):
  *             return Dual_c(self.real ** other.real, self.real ** other.real * (other.dual * math.log(self.real) + other.real * self.dual / self.real))
  *         raise TypeError("unsupported operand type(s) for **: '{}' and '{}'".format(type(self), type(other)))             # <<<<<<<<<<<<<<
  * 
  *     def __eq__(self, other):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a_5, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_unsupported_operand_type_s_for_a_5, __pyx_n_s_format); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
   __pyx_t_11 = 0;
@@ -4653,19 +5830,19 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyO
     PyObject *__pyx_callargs[3] = {__pyx_t_5, ((PyObject *)Py_TYPE(__pyx_v_self)), ((PyObject *)Py_TYPE(__pyx_v_other))};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_11, 2+__pyx_t_11);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_TypeError, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_Raise(__pyx_t_3, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __PYX_ERR(0, 107, __pyx_L1_error)
+  __PYX_ERR(0, 169, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":96
- *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+  /* "DualNum_c/Dual_c.pyx":158
+ *         return self.__truediv__(other)
  * 
  *     def __pow__(self, other):             # <<<<<<<<<<<<<<
  *         """
@@ -4691,7 +5868,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":109
+/* "DualNum_c/Dual_c.pyx":171
  *         raise TypeError("unsupported operand type(s) for **: '{}' and '{}'".format(type(self), type(other)))
  * 
  *     def __eq__(self, other):             # <<<<<<<<<<<<<<
@@ -4700,16 +5877,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_10__pow__(CYTHON_UNUSED PyO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_13__eq__(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_21__eq__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_12__eq__, "\n        Checks if two dual numbers are equal.\n\n        Parameters\n        ----------\n        other : Dual\n            The dual number to compare with the current dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_13__eq__ = {"__eq__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_13__eq__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_12__eq__};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_13__eq__(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_20__eq__, "\n        Checks if two dual numbers are equal.\n\n        Parameters\n        ----------\n        other : Dual\n            The dual number to compare with the current dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_21__eq__ = {"__eq__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_21__eq__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_20__eq__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_21__eq__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4756,7 +5933,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 171, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -4764,14 +5941,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 171, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("__eq__", 1, 2, 2, 1); __PYX_ERR(0, 109, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__eq__", 1, 2, 2, 1); __PYX_ERR(0, 171, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__eq__") < 0)) __PYX_ERR(0, 109, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__eq__") < 0)) __PYX_ERR(0, 171, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -4784,7 +5961,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__eq__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 109, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__eq__", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 171, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4798,7 +5975,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(__pyx_self, __pyx_v_self, __pyx_v_other);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20__eq__(__pyx_self, __pyx_v_self, __pyx_v_other);
 
   /* function exit code */
   {
@@ -4811,7 +5988,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20__eq__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4824,20 +6001,20 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__eq__", 1);
 
-  /* "DualNum_c/Dual_c.pyx":118
+  /* "DualNum_c/Dual_c.pyx":180
  *             The dual number to compare with the current dual number.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
  *             return self.real == other.real and self.dual == other.dual
  *         return False
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_other, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 180, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "DualNum_c/Dual_c.pyx":119
+    /* "DualNum_c/Dual_c.pyx":181
  *         """
  *         if isinstance(other, Dual_c):
  *             return self.real == other.real and self.dual == other.dual             # <<<<<<<<<<<<<<
@@ -4845,14 +6022,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyOb
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = PyObject_RichCompare(__pyx_t_3, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_5 = PyObject_RichCompare(__pyx_t_3, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 181, __pyx_L1_error)
     if (__pyx_t_2) {
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
@@ -4861,11 +6038,11 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyOb
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       goto __pyx_L4_bool_binop_done;
     }
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_other, __pyx_n_s_dual); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_INCREF(__pyx_t_3);
@@ -4876,7 +6053,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyOb
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "DualNum_c/Dual_c.pyx":118
+    /* "DualNum_c/Dual_c.pyx":180
  *             The dual number to compare with the current dual number.
  *         """
  *         if isinstance(other, Dual_c):             # <<<<<<<<<<<<<<
@@ -4885,7 +6062,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "DualNum_c/Dual_c.pyx":120
+  /* "DualNum_c/Dual_c.pyx":182
  *         if isinstance(other, Dual_c):
  *             return self.real == other.real and self.dual == other.dual
  *         return False             # <<<<<<<<<<<<<<
@@ -4897,7 +6074,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyOb
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":109
+  /* "DualNum_c/Dual_c.pyx":171
  *         raise TypeError("unsupported operand type(s) for **: '{}' and '{}'".format(type(self), type(other)))
  * 
  *     def __eq__(self, other):             # <<<<<<<<<<<<<<
@@ -4919,7 +6096,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":124
+/* "DualNum_c/Dual_c.pyx":186
  * 
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -4928,16 +6105,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_12__eq__(CYTHON_UNUSED PyOb
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_15__repr__(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_23__repr__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_14__repr__, "\n        Returns a string representation of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_15__repr__ = {"__repr__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_15__repr__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_14__repr__};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_15__repr__(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_22__repr__, "\n        Returns a string representation of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_23__repr__ = {"__repr__", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_23__repr__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_22__repr__};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_23__repr__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4981,12 +6158,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 124, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 186, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__repr__") < 0)) __PYX_ERR(0, 124, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "__repr__") < 0)) __PYX_ERR(0, 186, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -4997,7 +6174,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__repr__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 124, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__repr__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 186, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5011,7 +6188,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__repr__(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22__repr__(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -5024,7 +6201,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__repr__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22__repr__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5037,25 +6214,25 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__repr__(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__repr__", 1);
 
-  /* "DualNum_c/Dual_c.pyx":128
+  /* "DualNum_c/Dual_c.pyx":190
  *         Returns a string representation of the dual number.
  *         """
- *         return f'Dual_c(real={self.real}, dual={self.dual})'             # <<<<<<<<<<<<<<
+ *         return f'Dual(real={self.real}, dual={self.dual})'             # <<<<<<<<<<<<<<
  * 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = 0;
   __pyx_t_3 = 127;
-  __Pyx_INCREF(__pyx_kp_u_Dual_c_real);
-  __pyx_t_2 += 12;
-  __Pyx_GIVEREF(__pyx_kp_u_Dual_c_real);
-  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u_Dual_c_real);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_kp_u_Dual_real);
+  __pyx_t_2 += 10;
+  __Pyx_GIVEREF(__pyx_kp_u_Dual_real);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u_Dual_real);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_3 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) > __pyx_t_3) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) : __pyx_t_3;
@@ -5067,9 +6244,9 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__repr__(CYTHON_UNUSED Py
   __pyx_t_2 += 7;
   __Pyx_GIVEREF(__pyx_kp_u_dual_2);
   PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_u_dual_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_3 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_3) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_3;
@@ -5077,18 +6254,18 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__repr__(CYTHON_UNUSED Py
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_t_4);
   __pyx_t_4 = 0;
-  __Pyx_INCREF(__pyx_kp_u_);
+  __Pyx_INCREF(__pyx_kp_u__2);
   __pyx_t_2 += 1;
-  __Pyx_GIVEREF(__pyx_kp_u_);
-  PyTuple_SET_ITEM(__pyx_t_1, 4, __pyx_kp_u_);
-  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_1, 5, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_GIVEREF(__pyx_kp_u__2);
+  PyTuple_SET_ITEM(__pyx_t_1, 4, __pyx_kp_u__2);
+  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_1, 5, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":124
+  /* "DualNum_c/Dual_c.pyx":186
  * 
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -5109,7 +6286,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__repr__(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":132
+/* "DualNum_c/Dual_c.pyx":194
  * 
  *     # Class Methods
  *     def get_real(self):             # <<<<<<<<<<<<<<
@@ -5118,16 +6295,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_14__repr__(CYTHON_UNUSED Py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_17get_real(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_25get_real(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_16get_real, "\n        Returns the real part of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_17get_real = {"get_real", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_17get_real, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_16get_real};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_17get_real(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_24get_real, "\n        Returns the real part of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_25get_real = {"get_real", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_25get_real, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_24get_real};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_25get_real(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5171,12 +6348,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 132, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 194, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_real") < 0)) __PYX_ERR(0, 132, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_real") < 0)) __PYX_ERR(0, 194, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -5187,7 +6364,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_real", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 132, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_real", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 194, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5201,7 +6378,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16get_real(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24get_real(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -5214,7 +6391,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16get_real(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24get_real(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5223,7 +6400,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16get_real(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_real", 1);
 
-  /* "DualNum_c/Dual_c.pyx":136
+  /* "DualNum_c/Dual_c.pyx":198
  *         Returns the real part of the dual number.
  *         """
  *         return self.real             # <<<<<<<<<<<<<<
@@ -5231,13 +6408,13 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16get_real(CYTHON_UNUSED Py
  *     def get_dual(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":132
+  /* "DualNum_c/Dual_c.pyx":194
  * 
  *     # Class Methods
  *     def get_real(self):             # <<<<<<<<<<<<<<
@@ -5256,7 +6433,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16get_real(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":138
+/* "DualNum_c/Dual_c.pyx":200
  *         return self.real
  * 
  *     def get_dual(self):             # <<<<<<<<<<<<<<
@@ -5265,16 +6442,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_16get_real(CYTHON_UNUSED Py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_19get_dual(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_27get_dual(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_18get_dual, "\n        Returns the dual part of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_19get_dual = {"get_dual", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_19get_dual, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_18get_dual};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_19get_dual(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_26get_dual, "\n        Returns the dual part of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_27get_dual = {"get_dual", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_27get_dual, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_26get_dual};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_27get_dual(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5318,12 +6495,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 138, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_dual") < 0)) __PYX_ERR(0, 138, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "get_dual") < 0)) __PYX_ERR(0, 200, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -5334,7 +6511,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_dual", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 138, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_dual", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 200, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5348,7 +6525,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18get_dual(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26get_dual(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -5361,7 +6538,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18get_dual(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26get_dual(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5370,7 +6547,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18get_dual(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_dual", 1);
 
-  /* "DualNum_c/Dual_c.pyx":142
+  /* "DualNum_c/Dual_c.pyx":204
  *         Returns the dual part of the dual number.
  *         """
  *         return self.dual             # <<<<<<<<<<<<<<
@@ -5378,13 +6555,13 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18get_dual(CYTHON_UNUSED Py
  *     def sin(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":138
+  /* "DualNum_c/Dual_c.pyx":200
  *         return self.real
  * 
  *     def get_dual(self):             # <<<<<<<<<<<<<<
@@ -5403,7 +6580,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18get_dual(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":144
+/* "DualNum_c/Dual_c.pyx":206
  *         return self.dual
  * 
  *     def sin(self):             # <<<<<<<<<<<<<<
@@ -5412,16 +6589,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_18get_dual(CYTHON_UNUSED Py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_21sin(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_29sin(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_20sin, "\n        Returns the sine of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_21sin = {"sin", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_21sin, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_20sin};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_21sin(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_28sin, "\n        Returns the sine of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_29sin = {"sin", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_29sin, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_28sin};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_29sin(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5465,12 +6642,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 144, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 206, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "sin") < 0)) __PYX_ERR(0, 144, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "sin") < 0)) __PYX_ERR(0, 206, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -5481,7 +6658,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sin", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 144, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sin", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 206, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5495,7 +6672,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28sin(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -5508,7 +6685,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28sin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5525,7 +6702,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("sin", 1);
 
-  /* "DualNum_c/Dual_c.pyx":148
+  /* "DualNum_c/Dual_c.pyx":210
  *         Returns the sine of the dual number.
  *         """
  *         return Dual_c(math.sin(self.real), self.dual * math.cos(self.real))             # <<<<<<<<<<<<<<
@@ -5533,14 +6710,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObjec
  *     def cos(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_sin); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_sin); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -5561,18 +6738,18 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObjec
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 148, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 210, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cos); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cos); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_9 = NULL;
   __pyx_t_7 = 0;
@@ -5593,11 +6770,11 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObjec
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 210, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -5621,7 +6798,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObjec
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -5629,7 +6806,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObjec
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":144
+  /* "DualNum_c/Dual_c.pyx":206
  *         return self.dual
  * 
  *     def sin(self):             # <<<<<<<<<<<<<<
@@ -5655,7 +6832,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":150
+/* "DualNum_c/Dual_c.pyx":212
  *         return Dual_c(math.sin(self.real), self.dual * math.cos(self.real))
  * 
  *     def cos(self):             # <<<<<<<<<<<<<<
@@ -5664,16 +6841,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_20sin(CYTHON_UNUSED PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_23cos(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_31cos(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_22cos, "\n        Returns the cosine of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_23cos = {"cos", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_23cos, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_22cos};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_23cos(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_30cos, "\n        Returns the cosine of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_31cos = {"cos", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_31cos, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_30cos};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_31cos(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5717,12 +6894,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 150, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 212, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "cos") < 0)) __PYX_ERR(0, 150, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "cos") < 0)) __PYX_ERR(0, 212, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -5733,7 +6910,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("cos", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 150, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("cos", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 212, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5747,7 +6924,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30cos(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -5760,7 +6937,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30cos(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5777,7 +6954,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("cos", 1);
 
-  /* "DualNum_c/Dual_c.pyx":154
+  /* "DualNum_c/Dual_c.pyx":216
  *         Returns the cosine of the dual number.
  *         """
  *         return Dual_c(math.cos(self.real), -self.dual * math.sin(self.real))             # <<<<<<<<<<<<<<
@@ -5785,14 +6962,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObjec
  *     def tan(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -5813,21 +6990,21 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObjec
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 154, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 216, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = PyNumber_Negative(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Negative(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sin); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sin); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_9 = NULL;
   __pyx_t_7 = 0;
@@ -5848,11 +7025,11 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObjec
     __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 154, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 216, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Multiply(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5876,7 +7053,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObjec
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -5884,7 +7061,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObjec
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":150
+  /* "DualNum_c/Dual_c.pyx":212
  *         return Dual_c(math.sin(self.real), self.dual * math.cos(self.real))
  * 
  *     def cos(self):             # <<<<<<<<<<<<<<
@@ -5910,7 +7087,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":156
+/* "DualNum_c/Dual_c.pyx":218
  *         return Dual_c(math.cos(self.real), -self.dual * math.sin(self.real))
  * 
  *     def tan(self):             # <<<<<<<<<<<<<<
@@ -5919,16 +7096,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_22cos(CYTHON_UNUSED PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_25tan(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_33tan(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_24tan, "\n        Returns the tangent of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_25tan = {"tan", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_25tan, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_24tan};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_25tan(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_32tan, "\n        Returns the tangent of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_33tan = {"tan", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_33tan, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_32tan};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_33tan(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5972,12 +7149,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 156, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 218, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "tan") < 0)) __PYX_ERR(0, 156, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "tan") < 0)) __PYX_ERR(0, 218, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -5988,7 +7165,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("tan", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 156, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("tan", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 218, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6002,7 +7179,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32tan(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -6015,7 +7192,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32tan(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6032,7 +7209,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("tan", 1);
 
-  /* "DualNum_c/Dual_c.pyx":160
+  /* "DualNum_c/Dual_c.pyx":222
  *         Returns the tangent of the dual number.
  *         """
  *         return Dual_c(math.tan(self.real), self.dual / (math.cos(self.real) ** 2))             # <<<<<<<<<<<<<<
@@ -6040,14 +7217,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObjec
  *     def exp(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_tan); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_tan); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -6068,18 +7245,18 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObjec
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cos); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cos); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_9 = NULL;
   __pyx_t_7 = 0;
@@ -6100,14 +7277,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObjec
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 222, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = PyNumber_Power(__pyx_t_4, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Power(__pyx_t_4, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -6131,7 +7308,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObjec
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -6139,7 +7316,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObjec
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":156
+  /* "DualNum_c/Dual_c.pyx":218
  *         return Dual_c(math.cos(self.real), -self.dual * math.sin(self.real))
  * 
  *     def tan(self):             # <<<<<<<<<<<<<<
@@ -6165,7 +7342,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":162
+/* "DualNum_c/Dual_c.pyx":224
  *         return Dual_c(math.tan(self.real), self.dual / (math.cos(self.real) ** 2))
  * 
  *     def exp(self):             # <<<<<<<<<<<<<<
@@ -6174,16 +7351,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_24tan(CYTHON_UNUSED PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_27exp(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_35exp(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_26exp, "\n        Returns the exponential of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_27exp = {"exp", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_27exp, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_26exp};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_27exp(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_34exp, "\n        Returns the exponential of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_35exp = {"exp", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_35exp, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_34exp};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_35exp(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6227,12 +7404,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 162, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 224, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "exp") < 0)) __PYX_ERR(0, 162, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "exp") < 0)) __PYX_ERR(0, 224, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -6243,7 +7420,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("exp", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 162, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("exp", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 224, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6257,7 +7434,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34exp(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -6270,7 +7447,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34exp(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6287,7 +7464,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("exp", 1);
 
-  /* "DualNum_c/Dual_c.pyx":166
+  /* "DualNum_c/Dual_c.pyx":228
  *         Returns the exponential of the dual number.
  *         """
  *         return Dual_c(math.exp(self.real), self.dual * math.exp(self.real))             # <<<<<<<<<<<<<<
@@ -6295,14 +7472,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObjec
  *     def log(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_exp); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_exp); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -6323,18 +7500,18 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObjec
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 166, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 228, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_exp); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_exp); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_9 = NULL;
   __pyx_t_7 = 0;
@@ -6355,11 +7532,11 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObjec
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 228, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -6383,7 +7560,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObjec
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -6391,7 +7568,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObjec
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":162
+  /* "DualNum_c/Dual_c.pyx":224
  *         return Dual_c(math.tan(self.real), self.dual / (math.cos(self.real) ** 2))
  * 
  *     def exp(self):             # <<<<<<<<<<<<<<
@@ -6417,7 +7594,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":168
+/* "DualNum_c/Dual_c.pyx":230
  *         return Dual_c(math.exp(self.real), self.dual * math.exp(self.real))
  * 
  *     def log(self):             # <<<<<<<<<<<<<<
@@ -6426,16 +7603,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_26exp(CYTHON_UNUSED PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_29log(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_37log(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_28log, "\n        Returns the natural logarithm of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_29log = {"log", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_29log, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_28log};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_29log(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_36log, "\n        Returns the natural logarithm of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_37log = {"log", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_37log, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_36log};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_37log(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6479,12 +7656,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 168, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 230, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "log") < 0)) __PYX_ERR(0, 168, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "log") < 0)) __PYX_ERR(0, 230, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -6495,7 +7672,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("log", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 168, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("log", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 230, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6509,7 +7686,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36log(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -6522,7 +7699,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36log(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6538,35 +7715,35 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("log", 1);
 
-  /* "DualNum_c/Dual_c.pyx":172
+  /* "DualNum_c/Dual_c.pyx":234
  *         Returns the natural logarithm of the dual number.
  *         """
  *         if self.real <= 0:             # <<<<<<<<<<<<<<
  *             raise ValueError("Logarithm of a non-positive number is undefined.")
  *         return Dual_c(math.log(self.real), self.dual / self.real)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 172, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 172, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 172, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (unlikely(__pyx_t_3)) {
 
-    /* "DualNum_c/Dual_c.pyx":173
+    /* "DualNum_c/Dual_c.pyx":235
  *         """
  *         if self.real <= 0:
  *             raise ValueError("Logarithm of a non-positive number is undefined.")             # <<<<<<<<<<<<<<
  *         return Dual_c(math.log(self.real), self.dual / self.real)
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 173, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 235, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 173, __pyx_L1_error)
+    __PYX_ERR(0, 235, __pyx_L1_error)
 
-    /* "DualNum_c/Dual_c.pyx":172
+    /* "DualNum_c/Dual_c.pyx":234
  *         Returns the natural logarithm of the dual number.
  *         """
  *         if self.real <= 0:             # <<<<<<<<<<<<<<
@@ -6575,7 +7752,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "DualNum_c/Dual_c.pyx":174
+  /* "DualNum_c/Dual_c.pyx":236
  *         if self.real <= 0:
  *             raise ValueError("Logarithm of a non-positive number is undefined.")
  *         return Dual_c(math.log(self.real), self.dual / self.real)             # <<<<<<<<<<<<<<
@@ -6583,14 +7760,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObjec
  *     def sqrt(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_math); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_log); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_log); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_7 = NULL;
   __pyx_t_8 = 0;
@@ -6611,15 +7788,15 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObjec
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+1-__pyx_t_8, 1+__pyx_t_8);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_t_6, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_t_6, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -6643,7 +7820,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObjec
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
@@ -6651,7 +7828,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObjec
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":168
+  /* "DualNum_c/Dual_c.pyx":230
  *         return Dual_c(math.exp(self.real), self.dual * math.exp(self.real))
  * 
  *     def log(self):             # <<<<<<<<<<<<<<
@@ -6675,7 +7852,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":176
+/* "DualNum_c/Dual_c.pyx":238
  *         return Dual_c(math.log(self.real), self.dual / self.real)
  * 
  *     def sqrt(self):             # <<<<<<<<<<<<<<
@@ -6684,16 +7861,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_28log(CYTHON_UNUSED PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_31sqrt(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_39sqrt(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_30sqrt, "\n        Returns the square root of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_31sqrt = {"sqrt", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_31sqrt, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_30sqrt};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_31sqrt(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_38sqrt, "\n        Returns the square root of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_39sqrt = {"sqrt", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_39sqrt, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_38sqrt};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_39sqrt(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6737,12 +7914,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 176, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 238, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "sqrt") < 0)) __PYX_ERR(0, 176, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "sqrt") < 0)) __PYX_ERR(0, 238, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -6753,7 +7930,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sqrt", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 176, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sqrt", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 238, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6767,7 +7944,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38sqrt(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -6780,7 +7957,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38sqrt(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6797,7 +7974,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("sqrt", 1);
 
-  /* "DualNum_c/Dual_c.pyx":180
+  /* "DualNum_c/Dual_c.pyx":242
  *         Returns the square root of the dual number.
  *         """
  *         return Dual_c(math.sqrt(self.real), self.dual / (2 * math.sqrt(self.real)))             # <<<<<<<<<<<<<<
@@ -6805,14 +7982,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObje
  *     def sinh(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -6833,18 +8010,18 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObje
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 180, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_9 = NULL;
   __pyx_t_7 = 0;
@@ -6865,14 +8042,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObje
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 180, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = __Pyx_PyInt_MultiplyCObj(__pyx_int_2, __pyx_t_4, 2, 0, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyInt_MultiplyCObj(__pyx_int_2, __pyx_t_4, 2, 0, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -6896,7 +8073,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObje
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -6904,7 +8081,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObje
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":176
+  /* "DualNum_c/Dual_c.pyx":238
  *         return Dual_c(math.log(self.real), self.dual / self.real)
  * 
  *     def sqrt(self):             # <<<<<<<<<<<<<<
@@ -6930,7 +8107,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":182
+/* "DualNum_c/Dual_c.pyx":244
  *         return Dual_c(math.sqrt(self.real), self.dual / (2 * math.sqrt(self.real)))
  * 
  *     def sinh(self):             # <<<<<<<<<<<<<<
@@ -6939,16 +8116,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_30sqrt(CYTHON_UNUSED PyObje
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_33sinh(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_41sinh(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_32sinh, "\n        Returns the hyperbolic sine of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_33sinh = {"sinh", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_33sinh, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_32sinh};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_33sinh(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_40sinh, "\n        Returns the hyperbolic sine of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_41sinh = {"sinh", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_41sinh, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_40sinh};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_41sinh(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6992,12 +8169,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 182, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 244, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "sinh") < 0)) __PYX_ERR(0, 182, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "sinh") < 0)) __PYX_ERR(0, 244, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7008,7 +8185,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sinh", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 182, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sinh", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 244, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7022,7 +8199,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40sinh(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -7035,7 +8212,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40sinh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7052,7 +8229,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("sinh", 1);
 
-  /* "DualNum_c/Dual_c.pyx":186
+  /* "DualNum_c/Dual_c.pyx":248
  *         Returns the hyperbolic sine of the dual number.
  *         """
  *         return Dual_c(math.sinh(self.real), self.dual * math.cosh(self.real))             # <<<<<<<<<<<<<<
@@ -7060,14 +8237,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObje
  *     def cosh(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_sinh); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_sinh); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -7088,18 +8265,18 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObje
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 248, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cosh); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cosh); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_9 = NULL;
   __pyx_t_7 = 0;
@@ -7120,11 +8297,11 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObje
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 248, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -7148,7 +8325,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObje
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -7156,7 +8333,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObje
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":182
+  /* "DualNum_c/Dual_c.pyx":244
  *         return Dual_c(math.sqrt(self.real), self.dual / (2 * math.sqrt(self.real)))
  * 
  *     def sinh(self):             # <<<<<<<<<<<<<<
@@ -7182,7 +8359,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":188
+/* "DualNum_c/Dual_c.pyx":250
  *         return Dual_c(math.sinh(self.real), self.dual * math.cosh(self.real))
  * 
  *     def cosh(self):             # <<<<<<<<<<<<<<
@@ -7191,16 +8368,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_32sinh(CYTHON_UNUSED PyObje
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_35cosh(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_43cosh(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_34cosh, "\n        Returns the hyperbolic cosine of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_35cosh = {"cosh", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_35cosh, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_34cosh};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_35cosh(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_42cosh, "\n        Returns the hyperbolic cosine of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_43cosh = {"cosh", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_43cosh, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_42cosh};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_43cosh(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7244,12 +8421,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 188, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 250, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "cosh") < 0)) __PYX_ERR(0, 188, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "cosh") < 0)) __PYX_ERR(0, 250, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7260,7 +8437,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("cosh", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 188, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("cosh", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 250, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7274,7 +8451,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42cosh(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -7287,7 +8464,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42cosh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7304,7 +8481,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("cosh", 1);
 
-  /* "DualNum_c/Dual_c.pyx":192
+  /* "DualNum_c/Dual_c.pyx":254
  *         Returns the hyperbolic cosine of the dual number.
  *         """
  *         return Dual_c(math.cosh(self.real), self.dual * math.sinh(self.real))             # <<<<<<<<<<<<<<
@@ -7312,14 +8489,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObje
  *     def tanh(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cosh); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cosh); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -7340,18 +8517,18 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObje
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 192, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sinh); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sinh); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_9 = NULL;
   __pyx_t_7 = 0;
@@ -7372,11 +8549,11 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObje
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 192, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Multiply(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -7400,7 +8577,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObje
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -7408,7 +8585,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObje
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":188
+  /* "DualNum_c/Dual_c.pyx":250
  *         return Dual_c(math.sinh(self.real), self.dual * math.cosh(self.real))
  * 
  *     def cosh(self):             # <<<<<<<<<<<<<<
@@ -7434,7 +8611,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":194
+/* "DualNum_c/Dual_c.pyx":256
  *         return Dual_c(math.cosh(self.real), self.dual * math.sinh(self.real))
  * 
  *     def tanh(self):             # <<<<<<<<<<<<<<
@@ -7443,16 +8620,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_34cosh(CYTHON_UNUSED PyObje
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_37tanh(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_45tanh(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_36tanh, "\n        Returns the hyperbolic tangent of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_37tanh = {"tanh", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_37tanh, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_36tanh};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_37tanh(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_44tanh, "\n        Returns the hyperbolic tangent of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_45tanh = {"tanh", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_45tanh, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_44tanh};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_45tanh(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7496,12 +8673,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 194, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 256, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "tanh") < 0)) __PYX_ERR(0, 194, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "tanh") < 0)) __PYX_ERR(0, 256, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7512,7 +8689,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("tanh", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 194, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("tanh", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 256, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7526,7 +8703,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_44tanh(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -7539,7 +8716,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_44tanh(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7556,7 +8733,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("tanh", 1);
 
-  /* "DualNum_c/Dual_c.pyx":198
+  /* "DualNum_c/Dual_c.pyx":260
  *         Returns the hyperbolic tangent of the dual number.
  *         """
  *         return Dual_c(math.tanh(self.real), self.dual / (math.cosh(self.real) ** 2))             # <<<<<<<<<<<<<<
@@ -7564,14 +8741,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObje
  *     def asin(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_tanh); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_tanh); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -7592,18 +8769,18 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObje
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 198, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cosh); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cosh); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_9 = NULL;
   __pyx_t_7 = 0;
@@ -7624,14 +8801,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObje
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 198, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = PyNumber_Power(__pyx_t_4, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Power(__pyx_t_4, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -7655,7 +8832,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObje
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -7663,7 +8840,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObje
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":194
+  /* "DualNum_c/Dual_c.pyx":256
  *         return Dual_c(math.cosh(self.real), self.dual * math.sinh(self.real))
  * 
  *     def tanh(self):             # <<<<<<<<<<<<<<
@@ -7689,7 +8866,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":200
+/* "DualNum_c/Dual_c.pyx":262
  *         return Dual_c(math.tanh(self.real), self.dual / (math.cosh(self.real) ** 2))
  * 
  *     def asin(self):             # <<<<<<<<<<<<<<
@@ -7698,16 +8875,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_36tanh(CYTHON_UNUSED PyObje
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_39asin(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_47asin(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_38asin, "\n        Returns the arcsine of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_39asin = {"asin", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_39asin, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_38asin};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_39asin(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_46asin, "\n        Returns the arcsine of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_47asin = {"asin", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_47asin, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_46asin};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_47asin(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7751,12 +8928,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 200, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 262, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "asin") < 0)) __PYX_ERR(0, 200, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "asin") < 0)) __PYX_ERR(0, 262, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -7767,7 +8944,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("asin", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 200, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("asin", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 262, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7781,7 +8958,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_46asin(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -7794,7 +8971,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_46asin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7811,7 +8988,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("asin", 1);
 
-  /* "DualNum_c/Dual_c.pyx":204
+  /* "DualNum_c/Dual_c.pyx":266
  *         Returns the arcsine of the dual number.
  *         """
  *         return Dual_c(math.asin(self.real), self.dual / math.sqrt(1 - self.real ** 2))             # <<<<<<<<<<<<<<
@@ -7819,14 +8996,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObje
  *     def acos(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_asin); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_asin); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -7847,23 +9024,23 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObje
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_9 = PyNumber_Power(__pyx_t_6, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_9 = PyNumber_Power(__pyx_t_6, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_t_9, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_t_9, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_t_9 = NULL;
@@ -7885,11 +9062,11 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObje
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 204, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -7913,7 +9090,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObje
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -7921,7 +9098,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObje
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":200
+  /* "DualNum_c/Dual_c.pyx":262
  *         return Dual_c(math.tanh(self.real), self.dual / (math.cosh(self.real) ** 2))
  * 
  *     def asin(self):             # <<<<<<<<<<<<<<
@@ -7947,7 +9124,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":206
+/* "DualNum_c/Dual_c.pyx":268
  *         return Dual_c(math.asin(self.real), self.dual / math.sqrt(1 - self.real ** 2))
  * 
  *     def acos(self):             # <<<<<<<<<<<<<<
@@ -7956,16 +9133,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_38asin(CYTHON_UNUSED PyObje
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_41acos(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_49acos(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_40acos, "\n        Returns the arccosine of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_41acos = {"acos", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_41acos, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_40acos};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_41acos(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_48acos, "\n        Returns the arccosine of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_49acos = {"acos", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_49acos, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_48acos};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_49acos(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8009,12 +9186,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 206, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 268, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "acos") < 0)) __PYX_ERR(0, 206, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "acos") < 0)) __PYX_ERR(0, 268, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -8025,7 +9202,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("acos", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 206, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("acos", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 268, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -8039,7 +9216,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_48acos(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -8052,7 +9229,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_48acos(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -8069,7 +9246,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("acos", 1);
 
-  /* "DualNum_c/Dual_c.pyx":210
+  /* "DualNum_c/Dual_c.pyx":272
  *         Returns the arccosine of the dual number.
  *         """
  *         return Dual_c(math.acos(self.real), -self.dual / math.sqrt(1 - self.real ** 2))             # <<<<<<<<<<<<<<
@@ -8077,14 +9254,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObje
  *     def atan(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_acos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_acos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -8105,26 +9282,26 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObje
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 210, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 272, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = PyNumber_Negative(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Negative(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_math); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_sqrt); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_9 = PyNumber_Power(__pyx_t_6, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_9 = PyNumber_Power(__pyx_t_6, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_t_9, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_t_9, 1, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_t_9 = NULL;
@@ -8146,11 +9323,11 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObje
     __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 210, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
-  __pyx_t_8 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -8174,7 +9351,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObje
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -8182,7 +9359,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObje
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":206
+  /* "DualNum_c/Dual_c.pyx":268
  *         return Dual_c(math.asin(self.real), self.dual / math.sqrt(1 - self.real ** 2))
  * 
  *     def acos(self):             # <<<<<<<<<<<<<<
@@ -8208,7 +9385,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":212
+/* "DualNum_c/Dual_c.pyx":274
  *         return Dual_c(math.acos(self.real), -self.dual / math.sqrt(1 - self.real ** 2))
  * 
  *     def atan(self):             # <<<<<<<<<<<<<<
@@ -8217,16 +9394,16 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_40acos(CYTHON_UNUSED PyObje
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_43atan(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_51atan(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_42atan, "\n        Returns the arctangent of the dual number.\n        ");
-static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_43atan = {"atan", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_43atan, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_42atan};
-static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_43atan(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_6Dual_c_50atan, "\n        Returns the arctangent of the dual number.\n        ");
+static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_51atan = {"atan", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_51atan, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_6Dual_c_50atan};
+static PyObject *__pyx_pw_9DualNum_c_6Dual_c_6Dual_c_51atan(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8270,12 +9447,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 212, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 274, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "atan") < 0)) __PYX_ERR(0, 212, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "atan") < 0)) __PYX_ERR(0, 274, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -8286,7 +9463,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("atan", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 212, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("atan", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 274, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -8300,7 +9477,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42atan(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_9DualNum_c_6Dual_c_6Dual_c_50atan(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   {
@@ -8313,7 +9490,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42atan(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_50atan(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -8328,7 +9505,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42atan(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("atan", 1);
 
-  /* "DualNum_c/Dual_c.pyx":216
+  /* "DualNum_c/Dual_c.pyx":278
  *         Returns the arctangent of the dual number.
  *         """
  *         return Dual_c(math.atan(self.real), self.dual / (1 + self.real ** 2))             # <<<<<<<<<<<<<<
@@ -8336,14 +9513,14 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42atan(CYTHON_UNUSED PyObje
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dual_c); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_math); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_atan); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_atan); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = NULL;
   __pyx_t_7 = 0;
@@ -8364,21 +9541,21 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42atan(CYTHON_UNUSED PyObje
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 1+__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 216, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_dual); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_real); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = PyNumber_Power(__pyx_t_4, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Power(__pyx_t_4, __pyx_int_2, Py_None); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_AddCObj(__pyx_int_1, __pyx_t_6, 1, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_AddCObj(__pyx_int_1, __pyx_t_6, 1, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -8402,7 +9579,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42atan(CYTHON_UNUSED PyObje
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -8410,7 +9587,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42atan(CYTHON_UNUSED PyObje
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":212
+  /* "DualNum_c/Dual_c.pyx":274
  *         return Dual_c(math.acos(self.real), -self.dual / math.sqrt(1 - self.real ** 2))
  * 
  *     def atan(self):             # <<<<<<<<<<<<<<
@@ -8434,7 +9611,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_6Dual_c_42atan(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "DualNum_c/Dual_c.pyx":220
+/* "DualNum_c/Dual_c.pyx":282
  * 
  * 
  * def compute_derivative(func, x, dual_class):             # <<<<<<<<<<<<<<
@@ -8450,7 +9627,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_compute_derivative, "\n    Computes the derivative of a function at a given point using dual numbers.\n\n    Parameters\n    ----------\n    func : function\n        The function to compute the derivative of.\n    \n    x : float\n        The point at which to compute the derivative.\n    \n    dual_class : Dual\n        The class to use for dual numbers.\n\n    Returns\n    -------\n    float\n        The derivative of the function at the given point.\n    ");
+PyDoc_STRVAR(__pyx_doc_9DualNum_c_6Dual_c_compute_derivative, "\n    Computes the derivative of a function at a given point using dual numbers.\n\n    Parameters\n    ----------\n    func : function\n        The function to compute the derivative of.\n    \n    x : float\n        The point at which to compute the derivative.\n    \n    dual_class : Dual or Dual_c\n        The class to use for dual numbers.\n\n    Returns\n    -------\n    float\n        The derivative of the function at the given point.\n\n    Examples\n    --------\n    >>> def f(x):\n    ...     return x ** 2\n    >>> compute_derivative(f, 2, Dual_c)\n    4.0\n    ");
 static PyMethodDef __pyx_mdef_9DualNum_c_6Dual_c_1compute_derivative = {"compute_derivative", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9DualNum_c_6Dual_c_1compute_derivative, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_9DualNum_c_6Dual_c_compute_derivative};
 static PyObject *__pyx_pw_9DualNum_c_6Dual_c_1compute_derivative(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -8502,7 +9679,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 220, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 282, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -8510,9 +9687,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 220, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 282, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_derivative", 1, 3, 3, 1); __PYX_ERR(0, 220, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_derivative", 1, 3, 3, 1); __PYX_ERR(0, 282, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -8520,14 +9697,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 220, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 282, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_derivative", 1, 3, 3, 2); __PYX_ERR(0, 220, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_derivative", 1, 3, 3, 2); __PYX_ERR(0, 282, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "compute_derivative") < 0)) __PYX_ERR(0, 220, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "compute_derivative") < 0)) __PYX_ERR(0, 282, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
@@ -8542,7 +9719,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("compute_derivative", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 220, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("compute_derivative", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 282, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -8582,8 +9759,8 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_compute_derivative(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("compute_derivative", 1);
 
-  /* "DualNum_c/Dual_c.pyx":240
- *         The derivative of the function at the given point.
+  /* "DualNum_c/Dual_c.pyx":309
+ *     4.0
  *     """
  *     return func(dual_class(x, 1)).dual             # <<<<<<<<<<<<<<
  */
@@ -8607,7 +9784,7 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_compute_derivative(CYTHON_UNUSED Py
     PyObject *__pyx_callargs[3] = {__pyx_t_4, __pyx_v_x, __pyx_int_1};
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 2+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
@@ -8631,18 +9808,18 @@ static PyObject *__pyx_pf_9DualNum_c_6Dual_c_compute_derivative(CYTHON_UNUSED Py
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+1-__pyx_t_5, 1+__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_dual); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_dual); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "DualNum_c/Dual_c.pyx":220
+  /* "DualNum_c/Dual_c.pyx":282
  * 
  * 
  * def compute_derivative(func, x, dual_class):             # <<<<<<<<<<<<<<
@@ -8680,8 +9857,8 @@ static PyMethodDef __pyx_methods[] = {
 
 static int __Pyx_CreateStringTabAndInitStrings(void) {
   __Pyx_StringTabEntry __pyx_string_tab[] = {
-    {&__pyx_kp_u_, __pyx_k_, sizeof(__pyx_k_), 0, 1, 0, 0},
     {&__pyx_kp_s_A_class_to_represent_a_dual_num, __pyx_k_A_class_to_represent_a_dual_num, sizeof(__pyx_k_A_class_to_represent_a_dual_num), 0, 0, 1, 0},
+    {&__pyx_kp_u_Computes_the_derivative_of_a_fu, __pyx_k_Computes_the_derivative_of_a_fu, sizeof(__pyx_k_Computes_the_derivative_of_a_fu), 0, 1, 0, 0},
     {&__pyx_n_s_DualNum_c_Dual_c, __pyx_k_DualNum_c_Dual_c, sizeof(__pyx_k_DualNum_c_Dual_c), 0, 0, 1, 1},
     {&__pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_k_DualNum_c_Dual_c_pyx, sizeof(__pyx_k_DualNum_c_Dual_c_pyx), 0, 0, 1, 0},
     {&__pyx_n_s_Dual_c, __pyx_k_Dual_c, sizeof(__pyx_k_Dual_c), 0, 0, 1, 1},
@@ -8690,7 +9867,11 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_Dual_c___init, __pyx_k_Dual_c___init, sizeof(__pyx_k_Dual_c___init), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c___mul, __pyx_k_Dual_c___mul, sizeof(__pyx_k_Dual_c___mul), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c___pow, __pyx_k_Dual_c___pow, sizeof(__pyx_k_Dual_c___pow), 0, 0, 1, 1},
+    {&__pyx_n_s_Dual_c___radd, __pyx_k_Dual_c___radd, sizeof(__pyx_k_Dual_c___radd), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c___repr, __pyx_k_Dual_c___repr, sizeof(__pyx_k_Dual_c___repr), 0, 0, 1, 1},
+    {&__pyx_n_s_Dual_c___rmul, __pyx_k_Dual_c___rmul, sizeof(__pyx_k_Dual_c___rmul), 0, 0, 1, 1},
+    {&__pyx_n_s_Dual_c___rsub, __pyx_k_Dual_c___rsub, sizeof(__pyx_k_Dual_c___rsub), 0, 0, 1, 1},
+    {&__pyx_n_s_Dual_c___rtruediv, __pyx_k_Dual_c___rtruediv, sizeof(__pyx_k_Dual_c___rtruediv), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c___sub, __pyx_k_Dual_c___sub, sizeof(__pyx_k_Dual_c___sub), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c___truediv, __pyx_k_Dual_c___truediv, sizeof(__pyx_k_Dual_c___truediv), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c_acos, __pyx_k_Dual_c_acos, sizeof(__pyx_k_Dual_c_acos), 0, 0, 1, 1},
@@ -8702,19 +9883,21 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_Dual_c_get_dual, __pyx_k_Dual_c_get_dual, sizeof(__pyx_k_Dual_c_get_dual), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c_get_real, __pyx_k_Dual_c_get_real, sizeof(__pyx_k_Dual_c_get_real), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c_log, __pyx_k_Dual_c_log, sizeof(__pyx_k_Dual_c_log), 0, 0, 1, 1},
-    {&__pyx_kp_u_Dual_c_real, __pyx_k_Dual_c_real, sizeof(__pyx_k_Dual_c_real), 0, 1, 0, 0},
     {&__pyx_n_s_Dual_c_sin, __pyx_k_Dual_c_sin, sizeof(__pyx_k_Dual_c_sin), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c_sinh, __pyx_k_Dual_c_sinh, sizeof(__pyx_k_Dual_c_sinh), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c_sqrt, __pyx_k_Dual_c_sqrt, sizeof(__pyx_k_Dual_c_sqrt), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c_tan, __pyx_k_Dual_c_tan, sizeof(__pyx_k_Dual_c_tan), 0, 0, 1, 1},
     {&__pyx_n_s_Dual_c_tanh, __pyx_k_Dual_c_tanh, sizeof(__pyx_k_Dual_c_tanh), 0, 0, 1, 1},
+    {&__pyx_kp_u_Dual_real, __pyx_k_Dual_real, sizeof(__pyx_k_Dual_real), 0, 1, 0, 0},
     {&__pyx_kp_u_Expected_dual_to_be_of_type_floa, __pyx_k_Expected_dual_to_be_of_type_floa, sizeof(__pyx_k_Expected_dual_to_be_of_type_floa), 0, 1, 0, 0},
     {&__pyx_kp_u_Expected_real_to_be_of_type_floa, __pyx_k_Expected_real_to_be_of_type_floa, sizeof(__pyx_k_Expected_real_to_be_of_type_floa), 0, 1, 0, 0},
     {&__pyx_kp_u_Logarithm_of_a_non_positive_numb, __pyx_k_Logarithm_of_a_non_positive_numb, sizeof(__pyx_k_Logarithm_of_a_non_positive_numb), 0, 1, 0, 0},
     {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
     {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
-    {&__pyx_n_s__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 0, 1, 1},
-    {&__pyx_n_s__31, __pyx_k__31, sizeof(__pyx_k__31), 0, 0, 1, 1},
+    {&__pyx_n_s_ZeroDivisionError, __pyx_k_ZeroDivisionError, sizeof(__pyx_k_ZeroDivisionError), 0, 0, 1, 1},
+    {&__pyx_kp_u__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0, 0},
+    {&__pyx_n_s__36, __pyx_k__36, sizeof(__pyx_k__36), 0, 0, 1, 1},
+    {&__pyx_n_s__4, __pyx_k__4, sizeof(__pyx_k__4), 0, 0, 1, 1},
     {&__pyx_n_s_acos, __pyx_k_acos, sizeof(__pyx_k_acos), 0, 0, 1, 1},
     {&__pyx_n_s_add, __pyx_k_add, sizeof(__pyx_k_add), 0, 0, 1, 1},
     {&__pyx_n_s_asin, __pyx_k_asin, sizeof(__pyx_k_asin), 0, 0, 1, 1},
@@ -8722,9 +9905,11 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_atan, __pyx_k_atan, sizeof(__pyx_k_atan), 0, 0, 1, 1},
     {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
     {&__pyx_n_s_compute_derivative, __pyx_k_compute_derivative, sizeof(__pyx_k_compute_derivative), 0, 0, 1, 1},
+    {&__pyx_kp_u_compute_derivative_line_282, __pyx_k_compute_derivative_line_282, sizeof(__pyx_k_compute_derivative_line_282), 0, 1, 0, 0},
     {&__pyx_n_s_cos, __pyx_k_cos, sizeof(__pyx_k_cos), 0, 0, 1, 1},
     {&__pyx_n_s_cosh, __pyx_k_cosh, sizeof(__pyx_k_cosh), 0, 0, 1, 1},
     {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
+    {&__pyx_kp_u_division_by_zero_is_undefined, __pyx_k_division_by_zero_is_undefined, sizeof(__pyx_k_division_by_zero_is_undefined), 0, 1, 0, 0},
     {&__pyx_n_s_doc, __pyx_k_doc, sizeof(__pyx_k_doc), 0, 0, 1, 1},
     {&__pyx_n_s_dual, __pyx_k_dual, sizeof(__pyx_k_dual), 0, 0, 1, 1},
     {&__pyx_kp_u_dual_2, __pyx_k_dual_2, sizeof(__pyx_k_dual_2), 0, 1, 0, 0},
@@ -8752,8 +9937,12 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_pow, __pyx_k_pow, sizeof(__pyx_k_pow), 0, 0, 1, 1},
     {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
     {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
+    {&__pyx_n_s_radd, __pyx_k_radd, sizeof(__pyx_k_radd), 0, 0, 1, 1},
     {&__pyx_n_s_real, __pyx_k_real, sizeof(__pyx_k_real), 0, 0, 1, 1},
     {&__pyx_n_s_repr, __pyx_k_repr, sizeof(__pyx_k_repr), 0, 0, 1, 1},
+    {&__pyx_n_s_rmul, __pyx_k_rmul, sizeof(__pyx_k_rmul), 0, 0, 1, 1},
+    {&__pyx_n_s_rsub, __pyx_k_rsub, sizeof(__pyx_k_rsub), 0, 0, 1, 1},
+    {&__pyx_n_s_rtruediv, __pyx_k_rtruediv, sizeof(__pyx_k_rtruediv), 0, 0, 1, 1},
     {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
     {&__pyx_n_s_set_name, __pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 0, 1, 1},
     {&__pyx_n_s_sin, __pyx_k_sin, sizeof(__pyx_k_sin), 0, 0, 1, 1},
@@ -8778,8 +9967,9 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 36, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_builtin_ZeroDivisionError = __Pyx_GetBuiltinName(__pyx_n_s_ZeroDivisionError); if (!__pyx_builtin_ZeroDivisionError) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 235, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -8790,235 +9980,282 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "DualNum_c/Dual_c.pyx":173
+  /* "DualNum_c/Dual_c.pyx":140
+ *         """
+ *         if other.real == 0:
+ *             raise ZeroDivisionError("division by zero is undefined")             # <<<<<<<<<<<<<<
+ *         if isinstance(other, Dual_c):
+ *             return Dual_c(self.real / other.real, (self.dual * other.real - self.real * other.dual) / (other.real ** 2))
+ */
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_u_division_by_zero_is_undefined); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple_);
+  __Pyx_GIVEREF(__pyx_tuple_);
+
+  /* "DualNum_c/Dual_c.pyx":235
  *         """
  *         if self.real <= 0:
  *             raise ValueError("Logarithm of a non-positive number is undefined.")             # <<<<<<<<<<<<<<
  *         return Dual_c(math.log(self.real), self.dual / self.real)
  * 
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_Logarithm_of_a_non_positive_numb); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 173, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__2);
-  __Pyx_GIVEREF(__pyx_tuple__2);
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_u_Logarithm_of_a_non_positive_numb); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "DualNum_c/Dual_c.pyx":17
+  /* "DualNum_c/Dual_c.pyx":25
  * 
  *     # Special Methods
  *     def __init__(self, real, dual):             # <<<<<<<<<<<<<<
  *         """
  *         Constructs all the necessary attributes for the Dual object.
  */
-  __pyx_tuple__4 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_real, __pyx_n_s_dual); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__4);
-  __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_init, 17, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_real, __pyx_n_s_dual); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__5);
+  __Pyx_GIVEREF(__pyx_tuple__5);
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_init, 25, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 25, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":44
+  /* "DualNum_c/Dual_c.pyx":52
  *         self.dual = dual
  * 
  *     def __add__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Adds two dual numbers together.
+ *         Adds a dual number and another dual number or scalar.
  */
-  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_other); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 44, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__6);
-  __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_add, 44, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_other); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__7);
+  __Pyx_GIVEREF(__pyx_tuple__7);
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_add, 52, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 52, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":57
+  /* "DualNum_c/Dual_c.pyx":67
  *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __radd__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Adds a dual number and another dual number or scalar.
+ */
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_radd, 67, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 67, __pyx_L1_error)
+
+  /* "DualNum_c/Dual_c.pyx":78
+ *         return self.__add__(other)
  * 
  *     def __sub__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Subtracts one dual number from another.
+ *         Subtracts one dual number from another dual or int/float.
  */
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_sub, 57, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_sub, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 78, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":70
+  /* "DualNum_c/Dual_c.pyx":93
  *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rsub__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Subtracts one dual number from another dual or int/float.
+ */
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_rsub, 93, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 93, __pyx_L1_error)
+
+  /* "DualNum_c/Dual_c.pyx":104
+ *         return self.__sub__(other)
  * 
  *     def __mul__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Multiplies two dual numbers together.
+ *         Multiplies a dual number with another dual number or an int/float.
  */
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_mul, 70, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_mul, 104, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 104, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":83
+  /* "DualNum_c/Dual_c.pyx":119
  *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rmul__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Multiplies a dual number with another dual number or an int/float.
+ */
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_rmul, 119, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 119, __pyx_L1_error)
+
+  /* "DualNum_c/Dual_c.pyx":130
+ *         return self.__mul__(other)
  * 
  *     def __truediv__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Divides one dual number by another.
+ *         Divides one dual number by another dual number or an int/float.
  */
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_truediv, 83, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_truediv, 130, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 130, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":96
+  /* "DualNum_c/Dual_c.pyx":147
  *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rtruediv__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Divides one dual number by another dual number or an int/float.
+ */
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_rtruediv, 147, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 147, __pyx_L1_error)
+
+  /* "DualNum_c/Dual_c.pyx":158
+ *         return self.__truediv__(other)
  * 
  *     def __pow__(self, other):             # <<<<<<<<<<<<<<
  *         """
  *         Raises the dual number to the power of another dual number.
  */
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_pow, 96, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_pow, 158, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 158, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":109
+  /* "DualNum_c/Dual_c.pyx":171
  *         raise TypeError("unsupported operand type(s) for **: '{}' and '{}'".format(type(self), type(other)))
  * 
  *     def __eq__(self, other):             # <<<<<<<<<<<<<<
  *         """
  *         Checks if two dual numbers are equal.
  */
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_eq, 109, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_eq, 171, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 171, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":124
+  /* "DualNum_c/Dual_c.pyx":186
  * 
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns a string representation of the dual number.
  */
-  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 124, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__13);
-  __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_repr, 124, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__18);
+  __Pyx_GIVEREF(__pyx_tuple__18);
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_repr, 186, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 186, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":132
+  /* "DualNum_c/Dual_c.pyx":194
  * 
  *     # Class Methods
  *     def get_real(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the real part of the dual number.
  */
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_get_real, 132, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_get_real, 194, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 194, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":138
+  /* "DualNum_c/Dual_c.pyx":200
  *         return self.real
  * 
  *     def get_dual(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the dual part of the dual number.
  */
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_get_dual, 138, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 138, __pyx_L1_error)
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_get_dual, 200, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 200, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":144
+  /* "DualNum_c/Dual_c.pyx":206
  *         return self.dual
  * 
  *     def sin(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the sine of the dual number.
  */
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_sin, 144, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 144, __pyx_L1_error)
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_sin, 206, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 206, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":150
+  /* "DualNum_c/Dual_c.pyx":212
  *         return Dual_c(math.sin(self.real), self.dual * math.cos(self.real))
  * 
  *     def cos(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the cosine of the dual number.
  */
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_cos, 150, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_cos, 212, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 212, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":156
+  /* "DualNum_c/Dual_c.pyx":218
  *         return Dual_c(math.cos(self.real), -self.dual * math.sin(self.real))
  * 
  *     def tan(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the tangent of the dual number.
  */
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_tan, 156, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_tan, 218, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 218, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":162
+  /* "DualNum_c/Dual_c.pyx":224
  *         return Dual_c(math.tan(self.real), self.dual / (math.cos(self.real) ** 2))
  * 
  *     def exp(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the exponential of the dual number.
  */
-  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_exp, 162, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_exp, 224, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 224, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":168
+  /* "DualNum_c/Dual_c.pyx":230
  *         return Dual_c(math.exp(self.real), self.dual * math.exp(self.real))
  * 
  *     def log(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the natural logarithm of the dual number.
  */
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_log, 168, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_log, 230, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 230, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":176
+  /* "DualNum_c/Dual_c.pyx":238
  *         return Dual_c(math.log(self.real), self.dual / self.real)
  * 
  *     def sqrt(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the square root of the dual number.
  */
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_sqrt, 176, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_sqrt, 238, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 238, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":182
+  /* "DualNum_c/Dual_c.pyx":244
  *         return Dual_c(math.sqrt(self.real), self.dual / (2 * math.sqrt(self.real)))
  * 
  *     def sinh(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the hyperbolic sine of the dual number.
  */
-  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_sinh, 182, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_sinh, 244, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 244, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":188
+  /* "DualNum_c/Dual_c.pyx":250
  *         return Dual_c(math.sinh(self.real), self.dual * math.cosh(self.real))
  * 
  *     def cosh(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the hyperbolic cosine of the dual number.
  */
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_cosh, 188, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_cosh, 250, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 250, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":194
+  /* "DualNum_c/Dual_c.pyx":256
  *         return Dual_c(math.cosh(self.real), self.dual * math.sinh(self.real))
  * 
  *     def tanh(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the hyperbolic tangent of the dual number.
  */
-  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_tanh, 194, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_tanh, 256, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 256, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":200
+  /* "DualNum_c/Dual_c.pyx":262
  *         return Dual_c(math.tanh(self.real), self.dual / (math.cosh(self.real) ** 2))
  * 
  *     def asin(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the arcsine of the dual number.
  */
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_asin, 200, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_asin, 262, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 262, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":206
+  /* "DualNum_c/Dual_c.pyx":268
  *         return Dual_c(math.asin(self.real), self.dual / math.sqrt(1 - self.real ** 2))
  * 
  *     def acos(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the arccosine of the dual number.
  */
-  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_acos, 206, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_acos, 268, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 268, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":212
+  /* "DualNum_c/Dual_c.pyx":274
  *         return Dual_c(math.acos(self.real), -self.dual / math.sqrt(1 - self.real ** 2))
  * 
  *     def atan(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the arctangent of the dual number.
  */
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_atan, 212, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_atan, 274, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 274, __pyx_L1_error)
 
-  /* "DualNum_c/Dual_c.pyx":220
+  /* "DualNum_c/Dual_c.pyx":282
  * 
  * 
  * def compute_derivative(func, x, dual_class):             # <<<<<<<<<<<<<<
  *     """
  *     Computes the derivative of a function at a given point using dual numbers.
  */
-  __pyx_tuple__29 = PyTuple_Pack(3, __pyx_n_s_func, __pyx_n_s_x, __pyx_n_s_dual_class); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 220, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__29);
-  __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_compute_derivative, 220, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_tuple__34 = PyTuple_Pack(3, __pyx_n_s_func, __pyx_n_s_x, __pyx_n_s_dual_class); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__34);
+  __Pyx_GIVEREF(__pyx_tuple__34);
+  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_DualNum_c_Dual_c_pyx, __pyx_n_s_compute_derivative, 282, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -9406,268 +10643,316 @@ if (!__Pyx_RefNanny) {
   __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Dual_c, __pyx_n_s_Dual_c, (PyObject *) NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_kp_s_A_class_to_represent_a_dual_num); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "DualNum_c/Dual_c.pyx":17
+  /* "DualNum_c/Dual_c.pyx":25
  * 
  *     # Special Methods
  *     def __init__(self, real, dual):             # <<<<<<<<<<<<<<
  *         """
  *         Constructs all the necessary attributes for the Dual object.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_1__init__, 0, __pyx_n_s_Dual_c___init, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_1__init__, 0, __pyx_n_s_Dual_c___init, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_init, __pyx_t_3) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_init, __pyx_t_3) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":44
+  /* "DualNum_c/Dual_c.pyx":52
  *         self.dual = dual
  * 
  *     def __add__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Adds two dual numbers together.
+ *         Adds a dual number and another dual number or scalar.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_3__add__, 0, __pyx_n_s_Dual_c___add, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_3__add__, 0, __pyx_n_s_Dual_c___add, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add, __pyx_t_3) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add, __pyx_t_3) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":57
+  /* "DualNum_c/Dual_c.pyx":67
  *         raise TypeError("unsupported operand type(s) for +: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __radd__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Adds a dual number and another dual number or scalar.
+ */
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_5__radd__, 0, __pyx_n_s_Dual_c___radd, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_radd, __pyx_t_3) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "DualNum_c/Dual_c.pyx":78
+ *         return self.__add__(other)
  * 
  *     def __sub__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Subtracts one dual number from another.
+ *         Subtracts one dual number from another dual or int/float.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_5__sub__, 0, __pyx_n_s_Dual_c___sub, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_7__sub__, 0, __pyx_n_s_Dual_c___sub, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_sub, __pyx_t_3) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_sub, __pyx_t_3) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":70
+  /* "DualNum_c/Dual_c.pyx":93
  *         raise TypeError("unsupported operand type(s) for -: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rsub__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Subtracts one dual number from another dual or int/float.
+ */
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_9__rsub__, 0, __pyx_n_s_Dual_c___rsub, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_rsub, __pyx_t_3) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "DualNum_c/Dual_c.pyx":104
+ *         return self.__sub__(other)
  * 
  *     def __mul__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Multiplies two dual numbers together.
+ *         Multiplies a dual number with another dual number or an int/float.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_7__mul__, 0, __pyx_n_s_Dual_c___mul, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_11__mul__, 0, __pyx_n_s_Dual_c___mul, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_mul, __pyx_t_3) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_mul, __pyx_t_3) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":83
+  /* "DualNum_c/Dual_c.pyx":119
  *         raise TypeError("unsupported operand type(s) for *: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rmul__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Multiplies a dual number with another dual number or an int/float.
+ */
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_13__rmul__, 0, __pyx_n_s_Dual_c___rmul, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_rmul, __pyx_t_3) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "DualNum_c/Dual_c.pyx":130
+ *         return self.__mul__(other)
  * 
  *     def __truediv__(self, other):             # <<<<<<<<<<<<<<
  *         """
- *         Divides one dual number by another.
+ *         Divides one dual number by another dual number or an int/float.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_9__truediv__, 0, __pyx_n_s_Dual_c___truediv, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_15__truediv__, 0, __pyx_n_s_Dual_c___truediv, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_truediv, __pyx_t_3) < 0) __PYX_ERR(0, 83, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_truediv, __pyx_t_3) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":96
+  /* "DualNum_c/Dual_c.pyx":147
  *         raise TypeError("unsupported operand type(s) for /: '{}' and '{}'".format(type(self), type(other)))
+ * 
+ *     def __rtruediv__(self, other):             # <<<<<<<<<<<<<<
+ *         """
+ *         Divides one dual number by another dual number or an int/float.
+ */
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_17__rtruediv__, 0, __pyx_n_s_Dual_c___rtruediv, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_rtruediv, __pyx_t_3) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "DualNum_c/Dual_c.pyx":158
+ *         return self.__truediv__(other)
  * 
  *     def __pow__(self, other):             # <<<<<<<<<<<<<<
  *         """
  *         Raises the dual number to the power of another dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_11__pow__, 0, __pyx_n_s_Dual_c___pow, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_19__pow__, 0, __pyx_n_s_Dual_c___pow, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_pow, __pyx_t_3) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_pow, __pyx_t_3) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":109
+  /* "DualNum_c/Dual_c.pyx":171
  *         raise TypeError("unsupported operand type(s) for **: '{}' and '{}'".format(type(self), type(other)))
  * 
  *     def __eq__(self, other):             # <<<<<<<<<<<<<<
  *         """
  *         Checks if two dual numbers are equal.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_13__eq__, 0, __pyx_n_s_Dual_c___eq, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_21__eq__, 0, __pyx_n_s_Dual_c___eq, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_eq, __pyx_t_3) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_eq, __pyx_t_3) < 0) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":124
+  /* "DualNum_c/Dual_c.pyx":186
  * 
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns a string representation of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_15__repr__, 0, __pyx_n_s_Dual_c___repr, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_23__repr__, 0, __pyx_n_s_Dual_c___repr, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_repr, __pyx_t_3) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_repr, __pyx_t_3) < 0) __PYX_ERR(0, 186, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":132
+  /* "DualNum_c/Dual_c.pyx":194
  * 
  *     # Class Methods
  *     def get_real(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the real part of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_17get_real, 0, __pyx_n_s_Dual_c_get_real, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_25get_real, 0, __pyx_n_s_Dual_c_get_real, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_get_real, __pyx_t_3) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_get_real, __pyx_t_3) < 0) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":138
+  /* "DualNum_c/Dual_c.pyx":200
  *         return self.real
  * 
  *     def get_dual(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the dual part of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_19get_dual, 0, __pyx_n_s_Dual_c_get_dual, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 138, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_27get_dual, 0, __pyx_n_s_Dual_c_get_dual, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_get_dual, __pyx_t_3) < 0) __PYX_ERR(0, 138, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_get_dual, __pyx_t_3) < 0) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":144
+  /* "DualNum_c/Dual_c.pyx":206
  *         return self.dual
  * 
  *     def sin(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the sine of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_21sin, 0, __pyx_n_s_Dual_c_sin, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 144, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_29sin, 0, __pyx_n_s_Dual_c_sin, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_sin, __pyx_t_3) < 0) __PYX_ERR(0, 144, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_sin, __pyx_t_3) < 0) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":150
+  /* "DualNum_c/Dual_c.pyx":212
  *         return Dual_c(math.sin(self.real), self.dual * math.cos(self.real))
  * 
  *     def cos(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the cosine of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_23cos, 0, __pyx_n_s_Dual_c_cos, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_31cos, 0, __pyx_n_s_Dual_c_cos, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_cos, __pyx_t_3) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_cos, __pyx_t_3) < 0) __PYX_ERR(0, 212, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":156
+  /* "DualNum_c/Dual_c.pyx":218
  *         return Dual_c(math.cos(self.real), -self.dual * math.sin(self.real))
  * 
  *     def tan(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the tangent of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_25tan, 0, __pyx_n_s_Dual_c_tan, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_33tan, 0, __pyx_n_s_Dual_c_tan, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_tan, __pyx_t_3) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_tan, __pyx_t_3) < 0) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":162
+  /* "DualNum_c/Dual_c.pyx":224
  *         return Dual_c(math.tan(self.real), self.dual / (math.cos(self.real) ** 2))
  * 
  *     def exp(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the exponential of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_27exp, 0, __pyx_n_s_Dual_c_exp, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_35exp, 0, __pyx_n_s_Dual_c_exp, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_exp, __pyx_t_3) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_exp, __pyx_t_3) < 0) __PYX_ERR(0, 224, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":168
+  /* "DualNum_c/Dual_c.pyx":230
  *         return Dual_c(math.exp(self.real), self.dual * math.exp(self.real))
  * 
  *     def log(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the natural logarithm of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_29log, 0, __pyx_n_s_Dual_c_log, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_37log, 0, __pyx_n_s_Dual_c_log, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_log, __pyx_t_3) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_log, __pyx_t_3) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":176
+  /* "DualNum_c/Dual_c.pyx":238
  *         return Dual_c(math.log(self.real), self.dual / self.real)
  * 
  *     def sqrt(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the square root of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_31sqrt, 0, __pyx_n_s_Dual_c_sqrt, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_39sqrt, 0, __pyx_n_s_Dual_c_sqrt, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_sqrt, __pyx_t_3) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_sqrt, __pyx_t_3) < 0) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":182
+  /* "DualNum_c/Dual_c.pyx":244
  *         return Dual_c(math.sqrt(self.real), self.dual / (2 * math.sqrt(self.real)))
  * 
  *     def sinh(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the hyperbolic sine of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_33sinh, 0, __pyx_n_s_Dual_c_sinh, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_41sinh, 0, __pyx_n_s_Dual_c_sinh, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_sinh, __pyx_t_3) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_sinh, __pyx_t_3) < 0) __PYX_ERR(0, 244, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":188
+  /* "DualNum_c/Dual_c.pyx":250
  *         return Dual_c(math.sinh(self.real), self.dual * math.cosh(self.real))
  * 
  *     def cosh(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the hyperbolic cosine of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_35cosh, 0, __pyx_n_s_Dual_c_cosh, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_43cosh, 0, __pyx_n_s_Dual_c_cosh, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_cosh, __pyx_t_3) < 0) __PYX_ERR(0, 188, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_cosh, __pyx_t_3) < 0) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":194
+  /* "DualNum_c/Dual_c.pyx":256
  *         return Dual_c(math.cosh(self.real), self.dual * math.sinh(self.real))
  * 
  *     def tanh(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the hyperbolic tangent of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_37tanh, 0, __pyx_n_s_Dual_c_tanh, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_45tanh, 0, __pyx_n_s_Dual_c_tanh, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_tanh, __pyx_t_3) < 0) __PYX_ERR(0, 194, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_tanh, __pyx_t_3) < 0) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":200
+  /* "DualNum_c/Dual_c.pyx":262
  *         return Dual_c(math.tanh(self.real), self.dual / (math.cosh(self.real) ** 2))
  * 
  *     def asin(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the arcsine of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_39asin, 0, __pyx_n_s_Dual_c_asin, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_47asin, 0, __pyx_n_s_Dual_c_asin, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__31)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_asin, __pyx_t_3) < 0) __PYX_ERR(0, 200, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_asin, __pyx_t_3) < 0) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":206
+  /* "DualNum_c/Dual_c.pyx":268
  *         return Dual_c(math.asin(self.real), self.dual / math.sqrt(1 - self.real ** 2))
  * 
  *     def acos(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the arccosine of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_41acos, 0, __pyx_n_s_Dual_c_acos, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_49acos, 0, __pyx_n_s_Dual_c_acos, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_acos, __pyx_t_3) < 0) __PYX_ERR(0, 206, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_acos, __pyx_t_3) < 0) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":212
+  /* "DualNum_c/Dual_c.pyx":274
  *         return Dual_c(math.acos(self.real), -self.dual / math.sqrt(1 - self.real ** 2))
  * 
  *     def atan(self):             # <<<<<<<<<<<<<<
  *         """
  *         Returns the arctangent of the dual number.
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_43atan, 0, __pyx_n_s_Dual_c_atan, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_6Dual_c_51atan, 0, __pyx_n_s_Dual_c_atan, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__33)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_atan, __pyx_t_3) < 0) __PYX_ERR(0, 212, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_atan, __pyx_t_3) < 0) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "DualNum_c/Dual_c.pyx":3
@@ -9683,16 +10968,16 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "DualNum_c/Dual_c.pyx":220
+  /* "DualNum_c/Dual_c.pyx":282
  * 
  * 
  * def compute_derivative(func, x, dual_class):             # <<<<<<<<<<<<<<
  *     """
  *     Computes the derivative of a function at a given point using dual numbers.
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_1compute_derivative, 0, __pyx_n_s_compute_derivative, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9DualNum_c_6Dual_c_1compute_derivative, 0, __pyx_n_s_compute_derivative, NULL, __pyx_n_s_DualNum_c_Dual_c, __pyx_d, ((PyObject *)__pyx_codeobj__35)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_derivative, __pyx_t_2) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_derivative, __pyx_t_2) < 0) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "DualNum_c/Dual_c.pyx":1
@@ -9700,8 +10985,9 @@ if (!__Pyx_RefNanny) {
  * 
  * class Dual_c:
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_kp_u_compute_derivative_line_282, __pyx_kp_u_Computes_the_derivative_of_a_fu) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
@@ -10924,6 +12210,78 @@ static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
     return __Pyx_GetBuiltinName(name);
 }
 
+/* PyIntCompare */
+static CYTHON_INLINE int __Pyx_PyInt_BoolEqObjC(PyObject *op1, PyObject *op2, long intval, long inplace) {
+    CYTHON_MAYBE_UNUSED_VAR(intval);
+    CYTHON_UNUSED_VAR(inplace);
+    if (op1 == op2) {
+        return 1;
+    }
+    #if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_CheckExact(op1))) {
+        const long b = intval;
+        long a = PyInt_AS_LONG(op1);
+        return (a == b);
+    }
+    #endif
+    #if CYTHON_USE_PYLONG_INTERNALS
+    if (likely(PyLong_CheckExact(op1))) {
+        int unequal;
+        unsigned long uintval;
+        Py_ssize_t size = __Pyx_PyLong_DigitCount(op1);
+        const digit* digits = __Pyx_PyLong_Digits(op1);
+        if (intval == 0) {
+            return (__Pyx_PyLong_IsZero(op1) == 1);
+        } else if (intval < 0) {
+            if (__Pyx_PyLong_IsNonNeg(op1))
+                return 0;
+            intval = -intval;
+        } else {
+            if (__Pyx_PyLong_IsNeg(op1))
+                return 0;
+        }
+        uintval = (unsigned long) intval;
+#if PyLong_SHIFT * 4 < SIZEOF_LONG*8
+        if (uintval >> (PyLong_SHIFT * 4)) {
+            unequal = (size != 5) || (digits[0] != (uintval & (unsigned long) PyLong_MASK))
+                 | (digits[1] != ((uintval >> (1 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK)) | (digits[2] != ((uintval >> (2 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK)) | (digits[3] != ((uintval >> (3 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK)) | (digits[4] != ((uintval >> (4 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK));
+        } else
+#endif
+#if PyLong_SHIFT * 3 < SIZEOF_LONG*8
+        if (uintval >> (PyLong_SHIFT * 3)) {
+            unequal = (size != 4) || (digits[0] != (uintval & (unsigned long) PyLong_MASK))
+                 | (digits[1] != ((uintval >> (1 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK)) | (digits[2] != ((uintval >> (2 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK)) | (digits[3] != ((uintval >> (3 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK));
+        } else
+#endif
+#if PyLong_SHIFT * 2 < SIZEOF_LONG*8
+        if (uintval >> (PyLong_SHIFT * 2)) {
+            unequal = (size != 3) || (digits[0] != (uintval & (unsigned long) PyLong_MASK))
+                 | (digits[1] != ((uintval >> (1 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK)) | (digits[2] != ((uintval >> (2 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK));
+        } else
+#endif
+#if PyLong_SHIFT * 1 < SIZEOF_LONG*8
+        if (uintval >> (PyLong_SHIFT * 1)) {
+            unequal = (size != 2) || (digits[0] != (uintval & (unsigned long) PyLong_MASK))
+                 | (digits[1] != ((uintval >> (1 * PyLong_SHIFT)) & (unsigned long) PyLong_MASK));
+        } else
+#endif
+            unequal = (size != 1) || (((unsigned long) digits[0]) != (uintval & (unsigned long) PyLong_MASK));
+        return (unequal == 0);
+    }
+    #endif
+    if (PyFloat_CheckExact(op1)) {
+        const long b = intval;
+#if CYTHON_COMPILING_IN_LIMITED_API
+        double a = __pyx_PyFloat_AsDouble(op1);
+#else
+        double a = PyFloat_AS_DOUBLE(op1);
+#endif
+        return ((double)a == (double)b);
+    }
+    return __Pyx_PyObject_IsTrueAndDecref(
+        PyObject_RichCompare(op1, op2, Py_EQ));
+}
+
 /* PyIntBinop */
 #if !CYTHON_COMPILING_IN_PYPY
 static PyObject* __Pyx_PyInt_MultiplyCObj(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check) {
@@ -11473,7 +12831,7 @@ static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *
 #endif
 static PyObject *__Pyx__ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
 #if PY_MAJOR_VERSION < 3
-    PyObject *module, *from_list, *star = __pyx_n_s__3;
+    PyObject *module, *from_list, *star = __pyx_n_s__4;
     CYTHON_UNUSED_VAR(parts_tuple);
     from_list = PyList_New(1);
     if (unlikely(!from_list))
@@ -13390,7 +14748,7 @@ __Pyx_PyType_GetName(PyTypeObject* tp)
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) {
         PyErr_Clear();
         Py_XDECREF(name);
-        name = __Pyx_NewRef(__pyx_n_s__31);
+        name = __Pyx_NewRef(__pyx_n_s__36);
     }
     return name;
 }

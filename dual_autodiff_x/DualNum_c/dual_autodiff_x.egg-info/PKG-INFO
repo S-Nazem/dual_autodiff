@@ -7,7 +7,7 @@ License: MIT
 Project-URL: Documentation, Local HTML in build/html (run make html)
 Project-URL: Source, https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665.git
 Keywords: dual numbers,automatic differentiation,cythonized code
-Classifier: Development Status :: 3 - Alpha
+Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Science/Research
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3.9
