@@ -77,7 +77,7 @@ print("Result:", y)
 
 # Compute a derivative
 def f(x):
-return x.sin() + x.log()
+    return x.sin() + x.log()
 
 derivative = compute_derivative(f, 2, Dual)
 print("Derivative at x=2:", derivative)
