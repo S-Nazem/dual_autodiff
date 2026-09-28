@@ -1,8 +1,8 @@
 # DualNum Package
 
-The **DualNum**  package is a Python library for automatic differentiation using dual numbers. It enables precise computation of derivatives and supports a wide range of mathematical operations via the class **Dual**. Additionally, the package includes a Cythonized version, **Dual_c**, for improved performance in computationally intensive tasks.
+The **DualNum** package is a Python library for automatic differentiation using dual numbers. It enables precise computation of derivatives and supports a wide range of mathematical operations via the class **Dual**. Additionally, the package includes a Cythonized version, **Dual_c**, for improved performance in computationally intensive tasks.
 
---
+---
 
 ## Features
 - **Automatic Differentiation**: Compute derivatives of complex functions with ease.
@@ -12,58 +12,61 @@ The **DualNum**  package is a Python library for automatic differentiation using
 - **Robust Error Handling**: Safeguards against invalid mathematical operations (e.g., log of non-positive numbers).
 - **Integration with Scientific Tools**: Compatible with Python scientific libraries like NumPy and Matplotlib for advanced visualization and computation.
 
---
+---
 
 ## Installation
 
 1. Clone this repository:
    ```bash
-   git clone https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665.git
+   git clone https://github.com/S-Nazem/dual_autodiff.git
    cd dual_autodiff
    ```
 
-2. Install the DualNum (python) package and the dependancies:
+2. Create an environment and install the Python package (Python 3.9+):
    ```bash
-   pip install -r requirements.txt
-   pip install -e .
+   python3 -m venv .venv
+   source .venv/bin/activate
+   python -m pip install -e .
    ```
 
-3. Optional: Install the cythonized version
+3. Optional: Build the Cython version (requires a C compiler):
    ```bash
-   cd dual_autodiff_x
-   pip install -e .
+   python -m pip install -e ./dual_autodiff_x
    ```
 
---
+---
 
 ## Pre-built wheels 
 
-Pre-built wheels are available in the `dist_wheels` directory for quick installation on supported platforms.
+Pre-built Cython wheels are available in `dist_wheels` for Linux x86-64 with CPython 3.10 or 3.11. Choose the wheel matching your interpreter; these are alternatives to building the Cython extension from source. Install the Python package above separately.
 
 ### Installation
 
-1. Install the wheel (310):
-    ```bash
-    pip install dist_wheels/dual_autodiff_x-0.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-    ```
-2. Install the wheel (311)
-    ```bash
-    pip install dist_wheels/dual_autodiff_x-0.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-    ```
-3. Import and use
-    ```python
-    from DualNum import Dual, compute_derivate
-    from DualNum_c import Dual_c
-    ```
+For CPython 3.10:
 
---
+```bash
+pip install dist_wheels/dual_autodiff_x-0.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+```
+For CPython 3.11:
+
+```bash
+pip install dist_wheels/dual_autodiff_x-0.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+```
+Import after installing the Python package and a matching Cython wheel:
+
+```python
+from DualNum import Dual, compute_derivative
+from DualNum_c import Dual_c
+```
+
+---
 
 ## Usage
 
 Here's a quick example on how to use the **Dual** class:
 
 ```python
-from DualNum import Dual
+from DualNum import Dual, compute_derivative
 
 # Create a dual number with real part 2 and dual part 1
 x = Dual(2, 1)
@@ -74,7 +77,7 @@ print("Result:", y)
 
 # Compute a derivative
 def f(x):
-    return x.sin() + x.log()
+return x.sin() + x.log()
 
 derivative = compute_derivative(f, 2, Dual)
 print("Derivative at x=2:", derivative)
@@ -92,36 +95,28 @@ x = Dual_c(2, 1)
 y = x.sin() + x.log()
 print("Result:", y)
 ```
---
+---
 
 ## Documentation
 
-To view the documentation locally:
+From the repository root, install the documentation dependencies and build the HTML pages:
 
-1. Ensure you have Sphinx installed:
-   ```bash
-   pip install sphinx
+```bash
+python -m pip install sphinx sphinx-rtd-theme nbsphinx matplotlib
+make html
+```
 
-2. Navigate to the source
-    ```bash
-    cd dual_autodiff
+Open `build/html/index.html` in your browser. Rendering notebook documentation may also require Pandoc. The full `requirements.txt` is a historical development-environment snapshot and includes editable references to an older commit; it is not required for the basic Python installation.
 
-3. Build and open the documentation
-    ```bash
-    make html
-    open build/html/index.html
-    ```
-
---
+---
 
 ## Source
 
-The source code for this project is available on GitLab:
-[GitLab Repository](https://gitlab.developers.cam.ac.uk/phy/data-intensive-science-mphil/assessments/c1_coursework1/sn665)
+[GitHub repository](https://github.com/S-Nazem/dual_autodiff)
 
---
+---
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+The package metadata declares the MIT License. A standalone license file is not currently included in the repository.
 
